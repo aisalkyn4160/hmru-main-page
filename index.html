@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HMRU</title>
+  </head>
+  <body>
+
+  {{> _header}}
+
+      <main class="main">
+        <div class="container">
+          <section class="banner">
+            <div class="swiper banner-swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="banner__item" style="background: no-repeat 0 0/cover url('/public/banner.jpg');">
+                    <h2>Паллетоупаковщики HL</h2>
+                    <p>Выбирая паллетоупаковщики Hualian, вы получаете гарантию 24 месяца и бесплатный запуск оборудования!</p>
+                    <div class="banner__item-btns">
+                      <a href="#" class="btn">Перейти в каталог</a>
+                      <a href="#" class="primary-btn">Подробнее</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="banner__item" style="background: no-repeat 0 0/cover url('/public/banner.jpg');">
+                    <h2>Паллетоупаковщики HL</h2>
+                    <p>Выбирая паллетоупаковщики Hualian, вы получаете гарантию 24 месяца и бесплатный запуск оборудования!</p>
+                    <div class="banner__item-btns">
+                      <a href="#" class="btn">Перейти в каталог</a>
+                      <a href="#" class="primary-btn">Подробнее</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="banner__item" style="background: no-repeat 0 0/cover url('/public/banner.jpg');">
+                    <h2>Паллетоупаковщики HL</h2>
+                    <p>Выбирая паллетоупаковщики Hualian, вы получаете гарантию 24 месяца и бесплатный запуск оборудования!</p>
+                    <div class="banner__item-btns">
+                      <a href="#" class="btn">Перейти в каталог</a>
+                      <a href="#" class="primary-btn">Подробнее</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="banner-prev">
+                <svg width="12" height="22" viewBox="0 0 12 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M11 1L1 11L11 21" stroke="#2C3336"/>
+                </svg>                  
+              </button>
+              <button class="banner-next">
+                <svg width="12" height="22" viewBox="0 0 12 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                   <path d="M1 21L11 11L1 0.999999" stroke="#2C3336"/>
+                </svg>
+              </button>
+              <div class="swiper-pagination"></div>
+            </div>
+           </section>
+           <section class="products">
+            <div class="swiper products-swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="products__item">
+                    <h4>Увеличен срок гарантии на паллетоупаковщики</h4>
+                    <p>Бесплатный запуск</p>
+                    <img src="/public/product1.png" alt="#">
+
+                      <a href="#" class="products__item-btn">
+                        <svg width="12" height="22" viewBox="0 0 12 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 21L11 11L1 0.999999" stroke="#2C3336"/>
+                        </svg>
+                      </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+           </section>
+        </div>
+      </main>
+
+  {{> _footer}}
+
+<!--    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>-->
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
