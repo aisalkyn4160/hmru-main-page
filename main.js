@@ -208,4 +208,15 @@ document.addEventListener('DOMContentLoaded', () => {
             prevEl: '.banner-prev',
         },
     })
+
+    const productsSlider = new Swiper('.products-swiper', {
+        slidesPerView: 4,
+        spaceBetween: 16,
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        
+    })
 });

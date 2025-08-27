@@ -80,7 +80,8 @@ body {
   position: relative;
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
-  background-color: #F7F7F8;
+  // background-color: #F7F7F8;
+  background-color: #FFF;
   line-height: normal;
 
 }
@@ -116,7 +117,11 @@ h2{
   font-weight: 600;
   font-size: 56px;
 }
-
+h4{
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 120%;
+}
 p{
   font-weight: 400;
   font-size: 18px;
@@ -192,6 +197,14 @@ p{
     background: #0071E3;
     color: #FFF;
   }
+}
+.view-all-btn{
+  font-weight: 500;
+  font-size: 18px;
+  color: #0071E3;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 @media screen and (max-width: 768px) {
   .page__title {
