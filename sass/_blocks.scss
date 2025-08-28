@@ -1,9 +1,12 @@
 @use "blocks/header";
 @use "blocks/footer";
 
-@use "blocks/catalog";
+@use "blocks/catalog-menu";
 @use "blocks/contacts";
 @use "blocks/dropdown";
 @use "blocks/banner.scss";
 @use "blocks/products";
 @use "blocks/blogs";
+@use "blocks/catalog";
+@use "blocks/videos";
+@use "blocks/advantages";

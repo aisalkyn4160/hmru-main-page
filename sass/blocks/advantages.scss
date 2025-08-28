@@ -1,0 +1,92 @@
+.advantages{
+    &_header{
+        margin-bottom: 32px;
+        
+        p{
+            font-weight: 400;
+            font-size: 24px;
+            color: #2C3336;
+        }
+
+    }
+
+    &_content{
+        display: flex;
+        gap: 16px;
+    }
+    &_text{
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        span{
+            color: #2C3336;
+            font-weight: 600;
+        }
+    }
+    &_feedback{
+        width: 602px;
+        flex-shrink: 0;
+        border-radius: 24px;
+        background: #F7F7F8;
+        padding: 24px;
+
+        h3{
+            font-weight: 500;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        p{
+            font-weight: 300;
+            margin-bottom: 16px;
+        }
+        &-bottom{
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        &-form{
+            display: flex;
+            align-items: center;
+            gap: 16px;
+
+            input{
+                width: 230px;
+                height: 52px;
+                border-radius: 16px;
+                padding: 17px 16px;
+                background-color: #fff;
+                border: 1px solid #EFEFEF;
+                outline: none;
+                font-size: 18px;
+
+                &::placeholder{
+                    color: #758289;
+                    font-weight: 300;
+                }
+            }
+            button{
+                padding: 13.5px 16px;
+                border: none;
+                height: 52px;
+                width: 178px;
+            }
+        }
+        &-socials{
+            display: flex;
+            gap: 10px;
+            a{
+                width: 52px;
+                height: 52px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 4px 8px #0000000f;
+                border-radius: 16px;
+                transition: all .2s ease;
+                background-color: #FFF;
+            }
+        }
+    }
+}
