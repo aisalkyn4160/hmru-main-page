@@ -220,3 +220,12 @@ document.addEventListener('DOMContentLoaded', () => {
         
     })
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+   const showCatalog = document.querySelector('#show-catalog');
+   const catalogMenu = document.querySelector('.catalog-menu');
+
+   showCatalog?.addEventListener('click', () => {
+       catalogMenu?.classList.toggle('active');
+   });
+});
