@@ -1,10 +1,10 @@
-@media screen and (max-width: 1630px) {
-  .header__catalog_trigger {
-    margin-left: 60px;
-  }
+@media screen and (max-width: 1500px) {
   .header__search.main_search_block {
     margin-left: -210px;
     max-width: 455px;
+  }
+  .header__search{
+    width: auto;
   }
 }
 

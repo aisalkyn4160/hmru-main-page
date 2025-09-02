@@ -1,14 +1,13 @@
 .header {
-  position: fixed;
-  top: 0px;
-  left: 0px;
   width: 100%;
   background: white;
   z-index: 999;
-  box-shadow: 0px 4px 25px 0px rgba(216, 216, 218, 0.30);
+
   &__top {
     background: #f7f8fa;
-    padding:10px;
+    padding: 4px;
+    height: 50px;
+    // transition: transform 0.3s ease;
     .container {
       // padding: 4px 12px;
 
@@ -21,9 +20,13 @@
       display: flex;
       align-items: center;
     }
+    
+
   }
   &__bottom {
-    padding: 28px 0;
+      padding: 28px 0;
+      background: white;
+      box-shadow: 0px 4px 25px 0px rgba(216, 216, 218, 0.30);
     .container {
       display: flex;
       align-items: center;
@@ -172,7 +175,7 @@
   &__logo {
     width: 180px;
     height: 58px;
-
+    flex-shrink: 0;
     display: block;
     img {
       width: 100%;
@@ -219,18 +222,24 @@
       align-items: center;
       border: none;
       transition: 0.3s;
-
       cursor: pointer;
-      * {
-        cursor: pointer;
-      }
+     
       &:hover {
         opacity: 0.7;
       }
-      .basket, .cross {
-        width: 25px;
+      &.is_active {
+        .header__catalog__close {
+          display: block;
+        }
+        .header__catalog__open {
+          display: none;
+        }
       }
+
     }
+      &__close{
+        display: none;
+      }
   }
   &__search {
     width: 638px;
@@ -328,6 +337,21 @@
 
 .hide {
   display: none !important;
+}
+
+// Состояние хедера при скролле
+.header-scrolled {
+  .header__top {
+    display: none;
+  }
+  
+  .header__bottom {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+  }
 }
 
 // .jalousie {

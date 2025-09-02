@@ -107,13 +107,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-//main padding
+//main padding and sticky header
 document.addEventListener('DOMContentLoaded', () => {
-    const adjustPadding = () => {
-        document.querySelector('main').style.paddingTop = `${document.querySelector('header').offsetHeight}px`;
+    const header = document.querySelector('.header');
+    const main = document.querySelector('main');
+    
+    // Устанавливаем отступ для main (высота нижней части хедера)
+    main.style.paddingTop = '116px';
+    
+    const handleScroll = () => {
+        if (window.scrollY > 50) {
+            header.classList.add('header-scrolled');
+        } else {
+            header.classList.remove('header-scrolled');
+        }
     };
-    adjustPadding();
-    window.addEventListener('resize', adjustPadding);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
 });
 
 //click jalousie and close catalog dropdown
@@ -228,4 +238,61 @@ document.addEventListener('DOMContentLoaded', () => {
    showCatalog?.addEventListener('click', () => {
        catalogMenu?.classList.toggle('active');
    });
+});
+
+// --------------popup---------------------------
+
+// ----------------------------popup----------------------------
+
+document.addEventListener('DOMContentLoaded', function(){
+    const popup = document.querySelector('.popup')
+    const popupShowBtns = document.querySelectorAll('.show-popup')
+    const closeFormBtn = document.querySelector('.close-popup')
+    const feedbackForm = document.querySelector('#feedback-popup form')
+    const feedbackSuccess = document.querySelector('.feedback-success')
+    const successBtn = document.querySelector('.success-btn')
+
+    popupShowBtns.forEach(item => {
+        item.addEventListener('click', () => {
+            popup.classList.add('active')
+            document.body.classList.add('no-scroll')
+        })
+    })
+
+    closeFormBtn.addEventListener('click', () => {
+        popup.classList.remove('active')
+        document.body.classList.remove('no-scroll')
+        // Сбросить состояние попапа при закрытии
+        feedbackForm.style.display = 'block'
+        feedbackSuccess.style.display = 'none'
+    })
+
+    // Обработчик отправки формы
+    feedbackForm.addEventListener('submit', (event) => {
+        event.preventDefault() // Предотвращаем стандартную отправку формы
+        
+        // Скрываем форму и показываем блок успеха
+        feedbackForm.style.display = 'none'
+        feedbackSuccess.style.display = 'block'
+    })
+
+    // Обработчик кнопки "Хорошо" в блоке успеха
+    successBtn.addEventListener('click', () => {
+        popup.classList.remove('active')
+        document.body.classList.remove('no-scroll')
+        // Сбрасываем состояние для следующего использования
+        feedbackForm.style.display = 'block'
+        feedbackSuccess.style.display = 'none'
+        feedbackForm.reset() // Очищаем форму
+    })
+
+    document.addEventListener('click', (event) => {
+        if (event.target === popup) {
+            popup.classList.remove('active')
+            document.body.classList.remove('no-scroll')
+            // Сбросить состояние попапа при закрытии
+            feedbackForm.style.display = 'block'
+            feedbackSuccess.style.display = 'none'
+        }
+    });
 });
