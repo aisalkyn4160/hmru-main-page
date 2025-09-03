@@ -112,8 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('.header');
     const main = document.querySelector('main');
     
-    // Устанавливаем отступ для main (высота нижней части хедера)
-    main.style.paddingTop = '116px';
+
     
     const handleScroll = () => {
         if (window.scrollY > 50) {
