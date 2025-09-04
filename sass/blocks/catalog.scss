@@ -25,6 +25,7 @@
 
         h4{
             padding: 32px 32px 0;
+            hyphens: auto;
         }
         &-btn{
             width: 50px;
@@ -41,4 +42,22 @@
             cursor: pointer;
         }
     }
+}
+
+@media screen and (max-width: 1400px) {
+    .catalog{
+        &_list{
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+    
+}
+
+@media screen and (max-width: 1024px) {
+    .catalog{
+        &_list{
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    
 }

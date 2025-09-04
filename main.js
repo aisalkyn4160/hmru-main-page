@@ -226,6 +226,21 @@ document.addEventListener('DOMContentLoaded', () => {
             el: '.swiper-pagination',
             clickable: true,
         },
+        breakpoints: {
+            0: {
+                slidesPerView: 1,
+            },
+
+            800: {
+                slidesPerView: 2,
+            },
+            1190: {
+                slidesPerView: 3,
+            },
+            1500: {
+                slidesPerView: 4,
+            },
+        }
         
     })
 });

@@ -83,6 +83,7 @@ body {
   // background-color: #F7F7F8;
   background-color: #FFF;
   line-height: normal;
+  font-style: normal;
 
 }
 
@@ -180,6 +181,8 @@ p{
   color: #FFF;
   border: none;
   transition: .3s ease;
+  white-space: nowrap;
+  height: 52px;
 
   &:hover{
     background: #1087FE;
@@ -194,6 +197,8 @@ p{
   font-size: 18px;
   line-height: 23px;
   transition: .3s ease;
+  white-space: nowrap;
+  height: 52px;
 
   &:hover{
     background: #0071E3;
@@ -207,14 +212,34 @@ p{
   display: flex;
   align-items: center;
   gap: 15px;
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 992px) {
+ h2{
+  font-size: 46px;
+ }
+ h4{
+  font-size: 20px;
+ }
+  
 }
 @media screen and (max-width: 768px) {
+  h2{
+    font-size: 32px;
+  }
   .page__title {
     font-size: 36px;
+  }
+  .container {
+    padding: 0 15px;
   }
 }
 
 @media screen and (max-width: 576px) {
+  h2{
+    hyphens: auto;
+  }
   .page__title {
     font-size: 32px;
   }

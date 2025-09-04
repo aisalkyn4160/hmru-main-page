@@ -17,20 +17,20 @@
         border-radius: 32px;
         background: #F7F7F8;
         padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
 
-        h4{
-            margin-bottom: 16px;
-        }
+       
         img{
             width: 100%;
             border-radius: 16px;
-            margin-bottom: 16px;
         }
         &-btns{
             display: flex;
             align-items: center;
             gap: 16px;
-            margin-top: 16px;
+            margin-top: auto;
         }
         &-btn{
             border-radius: 16px;
@@ -39,6 +39,7 @@
             font-size: 16px;
             font-weight: 400;
             color: #70828A;
+            white-space: nowrap;
         }
     }
     &_item:first-child{
@@ -52,5 +53,13 @@
         font-size: 16px;
         font-weight: 300;
         color: #70828A;
+        width: max-content;
     }
+}
+
+@media (max-width: 1190px) {
+    .blogs_list{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    
 }
