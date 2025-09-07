@@ -121,6 +121,11 @@
   }
   &__telegram {
     margin-right: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    color: #70828A;
     cursor: pointer;
     * {
       cursor: pointer;
@@ -137,9 +142,8 @@
     color: #70828A;
     font-size: 16px;
     text-decoration: none;
-
     transition: all 0.3s ease;
-
+    margin-right: 30px;
     cursor: pointer;
     * {
       cursor: pointer;
@@ -165,7 +169,7 @@
     text-align: center;
     cursor: pointer;
     height: 40px;
-    margin-left: 30px;
+    // margin-left: 30px;
     &:hover {
       border: 1px solid #0071E3;
       color: #0071E3;
@@ -191,7 +195,25 @@
     position: relative;
     width: 60px;
     height: 60px;
-
+    background: #F7F7F8;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all .2s ease;
+    a {
+      flex-shrink: 0;
+      width: 60px;
+      height: 60px;
+      background: #F7F7F8;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: all .2s ease;
+    }
 
     span{
       min-width: 16px;

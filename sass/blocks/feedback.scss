@@ -5,6 +5,7 @@
     padding: 96px;
     position: relative;
     min-height: 619px;
+    // overflow-x: hidden;
 
     &_content{
         width: 50%;
@@ -75,8 +76,36 @@
 
     &_img{
         position: absolute;
-        right: 46px;
+        right: -260px;
         bottom: 0;
-        width: 40%;
+        width: 60%;
     }
+}
+
+@media screen and (max-width: 1500px) {
+    .feedback{
+        &_content{
+            width: 100%;
+        }
+        &_img{
+            display: none;
+        }
+    }
+    
+}
+
+@media screen and (max-width: 992px) {
+    .feedback{
+        padding: 40px;
+        min-height: unset;
+
+        &_content{
+            form{
+                input, textarea{
+                    width: 100%;
+                }
+            }
+        }
+    }
+    
 }

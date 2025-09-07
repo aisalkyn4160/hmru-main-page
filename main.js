@@ -1,6 +1,7 @@
 import { Fancybox } from "@fancyapps/ui";
 import Swiper from 'swiper/bundle';
 import { Mask, MaskInput } from "maska"
+import 'jquery';
 
 import './sass/_app.scss';
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
@@ -310,3 +311,29 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     });
 });
+
+
+// ---------------------------has-submenu-accordion----------------------------
+document.addEventListener('DOMContentLoaded', function(){
+    const hasSubListArrows = document.querySelectorAll('.has-sublist__arrow');
+
+
+    hasSubListArrows.forEach(item => {
+        item.addEventListener('click', () => {
+            item.classList.toggle('active');
+
+            if (item.classList.contains('active')) {
+                item.style.transform = 'rotate(-90deg)';
+            } else {
+                item.style.transform = 'rotate(90deg)';
+            }
+
+            const submenu = item.closest('.has-sublist').querySelector('.catalog-menu__sublist');
+
+            if (submenu) {
+                submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+            }
+        })
+    })
+});
+   
