@@ -133,6 +133,22 @@
       li{
         color: #70828A;
         font-weight: 400;
+        transition: all 0.3s ease 0s;
+
+        a{
+          border-radius: 8px;
+          margin-right: -8px;
+          transition: all 0.3s ease 0s
+        }
+        &:hover{
+          
+          a{
+            background-color: #E2E3E9 !important;
+            background-image: none !important;
+            opacity: 1;
+            color: #70828A;
+          }
+        }
       }
     }
   }

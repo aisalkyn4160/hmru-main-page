@@ -73,13 +73,13 @@ html {
 }
 
 body {
-  font-family: var(--font-family);
+  font-family: "Onest", serif;
   overflow-x: hidden;
   color: #303239;
   cursor: default;
   position: relative;
   scroll-behavior: smooth;
-  text-rendering: optimizeSpeed;
+  // text-rendering: optimizeSpeed;
   // background-color: #F7F7F8;
   background-color: #FFF;
   line-height: normal;

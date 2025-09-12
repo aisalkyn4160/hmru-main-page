@@ -336,4 +336,14 @@ document.addEventListener('DOMContentLoaded', function(){
         })
     })
 });
+
+// ---------------------------------header-discount-dropdown--------------------------------
+document.addEventListener('DOMContentLoaded', function(){
+    const headerDiscount = document.querySelector('.header__discount');
+    const headerDiscountDropdown = document.querySelector('.header__discount-dropdown');
+
+    headerDiscount.addEventListener('click', () => {
+        headerDiscountDropdown.classList.toggle('active');
+    })
+});
    

@@ -40,6 +40,14 @@
             font-weight: 400;
             color: #70828A;
             white-space: nowrap;
+            height: 40px;
+            transition: all .2s ease;
+            &:hover{
+                border: 1px solid #0071E3;
+                background: #0071E3;
+                color: #fff;
+                font-weight: 500;
+            }
         }
     }
     &_item:first-child{

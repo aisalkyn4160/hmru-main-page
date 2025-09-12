@@ -4,11 +4,12 @@
     max-width: 455px;
   }
   .header__search{
-    width: 450px;
+    width: 100%;
+    max-width: 638px;
   }
 }
 
-@media screen and (max-width: 1250px) {
+@media screen and (max-width: 1020px) {
   .header__links {
     position: fixed;
     left: 0;
@@ -35,7 +36,7 @@
   }
 }
 
-@media screen and (max-width: 1130px) {
+@media screen and (max-width: 1020px) {
   .header__top {
     display: none;
   }

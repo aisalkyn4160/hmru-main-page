@@ -1,7 +1,7 @@
 .footer {
   background: #232426;
   // margin-top: 150px;
-  p, a, .footer__bottom_copy {
+  p, a{
     font-weight: 400;
     font-size: 16px;
 
@@ -62,6 +62,10 @@
       justify-content: center;
       gap: 20px;
     }
+    &_copy{
+      font-size: 14px;
+      color: #91969d;
+    } 
   }
 
   &__title {
@@ -215,7 +219,7 @@
         background: #0071E3;
         &:hover {
           color: #fff;
-          opacity: 0.7;
+          background-color: #1087FE;
         }
       }
     }
@@ -317,7 +321,7 @@
       cursor: pointer;
 
       &:hover {
-        opacity: 0.7;
+        background-color: #1087FE;
       }
     }
   }

@@ -80,6 +80,41 @@
         bottom: 0;
         width: 60%;
     }
+    &_privacy{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0 auto;
+        position: relative;
+
+        input[type="checkbox"]{
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #FFFFFF;
+        }
+        label{
+            position: absolute;
+            left: 0;
+            top: 0;
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #FFFFFF;
+            cursor: pointer;
+            transition: all .3s ease;
+        }
+        input[type="checkbox"]:checked + label{
+            background: #0071E3;
+        }
+    }
 }
 
 @media screen and (max-width: 1500px) {

@@ -22,10 +22,22 @@
         justify-content: space-between;
         gap: 46px;
         position: relative;
+        height: 500px;
+        transition: all .3s ease;
+
+        &:hover{
+            background: #E2E3E9;
+        }
 
         h4{
             padding: 32px 32px 0;
             hyphens: auto;
+        }
+        &-img{
+            width: 100%;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
         }
         &-btn{
             width: 50px;

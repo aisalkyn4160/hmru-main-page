@@ -1,5 +1,5 @@
 .videos{
-  padding: 48px 0;
+  padding-bottom: 48px;
     &_header{
         display: inline-flex;
         flex-wrap: wrap;
@@ -175,11 +175,7 @@
 .fancybox-image{
   object-fit: cover !important;
 }
-@media screen {
-  .videos_list{
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
+
 @media screen and (max-width: 992px) {
   .videos_header{
     a{

@@ -2,24 +2,26 @@
     padding-top: 40px;
     
     &-swiper{
-        height: 719px;
+        // height: 719px;
+        padding-bottom: 80px !important;
 
         .swiper-pagination{
             margin-bottom: 40px;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 16px;
+            gap: 12px;
 
             .swiper-pagination-bullet{
                 width: 7px;
                 height: 7px;
                 border-radius: 50%;
                 background: #758289;
-                opacity: 1;
+                opacity: .2;
             }
             .swiper-pagination-bullet-active{
                 background: #0071E3;
+                opacity: 1;
             }
         }
     }
