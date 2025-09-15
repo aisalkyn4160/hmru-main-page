@@ -24,6 +24,9 @@
        
         img{
             width: 100%;
+            height: 556px;
+            object-fit: cover;
+            object-position: center;
             border-radius: 16px;
         }
         &-btns{
@@ -66,8 +69,6 @@
 }
 
 @media (max-width: 1190px) {
-    .blogs_list{
-        grid-template-columns: repeat(1, 1fr);
-    }
+  
     
 }

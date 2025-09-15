@@ -2,9 +2,11 @@
     padding-top: 40px;
     
     &-swiper{
-        // height: 719px;
         padding-bottom: 80px !important;
-
+        .swiper-slide{
+            width: 448px;
+            margin-right: 16px;
+        }
         .swiper-pagination{
             margin-bottom: 40px;
             display: flex;
@@ -99,5 +101,11 @@
             z-index: 2;
         }
 
+    }
+}
+
+@media (max-width:1840px) {
+    .products{
+        margin-right: -40px;
     }
 }

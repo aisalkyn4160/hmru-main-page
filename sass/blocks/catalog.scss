@@ -9,11 +9,13 @@
     }
 
     &_list{
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        display: flex;
+        flex-wrap: wrap;
         gap: 16px;
     }
     &_item{
+        width: 448px;
+        flex-grow: 1;
         border-radius: 32px;
         overflow: hidden;
         background: #F7F7F8;
@@ -54,22 +56,4 @@
             cursor: pointer;
         }
     }
-}
-
-@media screen and (max-width: 1400px) {
-    .catalog{
-        &_list{
-            grid-template-columns: repeat(3, 1fr);
-        }
-    }
-    
-}
-
-@media screen and (max-width: 1024px) {
-    .catalog{
-        &_list{
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-    
 }
