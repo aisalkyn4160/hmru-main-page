@@ -3,9 +3,14 @@
     margin-left: -210px;
     max-width: 455px;
   }
+  .header__bottom-middle{
+    flex-grow: 1;
+    margin-right: 16px;
+  }
   .header__search{
     width: 100%;
     max-width: 638px;
+    flex-grow: 1;
   }
 }
 

@@ -20,6 +20,8 @@
         display: flex;
         flex-direction: column;
         gap: 16px;
+        min-width: 464px;
+        max-width: 1222px;
 
         span{
             color: #2C3336;
@@ -27,8 +29,6 @@
         }
     }
     &_feedback{
-        width: 602px;
-        flex-shrink: 0;
         border-radius: 24px;
         background: #F7F7F8;
         padding: 24px;
@@ -44,16 +44,20 @@
             margin-bottom: 16px;
         }
         &-bottom{
-            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 16px;
             
         }
         &-form{
             display: flex;
             align-items: center;
             gap: 16px;
+            flex-grow: 1;
 
             input{
-                width: 230px;
+                width: 203px;
+                // flex-grow: 1;
                 height: 52px;
                 border-radius: 16px;
                 padding: 17px 16px;
@@ -75,9 +79,6 @@
             }
         }
         &-socials{
-            position: absolute;
-            bottom: 0;
-            right: 0;
             display: flex;
             gap: 10px;
             a{
@@ -95,12 +96,15 @@
     }
 
     &-list{
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
+        display: flex;
+        flex-wrap: wrap;
         gap: 16px;
         margin-top: 40px;
 
         &__item{
+            width: calc(100% / 6 - 16px);
+            min-width: 224px;
+            flex-grow: 1;
             padding: 24px;
             background: #F7F7F8;
             border-radius: 24px;
@@ -132,35 +136,9 @@
 }
 
 
-@media  screen and (max-width: 1500px) {
-    .advantages-list{
-        grid-template-columns: repeat(3, 1fr);
-    }
-    
-}
-@media screen and (max-width: 1200px) {
-    .advantages_content{
-        flex-direction: column;
-        gap: 24px;
-    }
-   
-}
-@media screen and (max-width: 768px) {
-    .advantages_feedback{
-        width: 100%;
-    }
-    .advantages_feedback-form{
-        flex-direction: column;
-        align-items: flex-start;
-
-        input{
-            width: 100%;
-        }
-        button{
-            width: calc(100% - 135px);
-        }
-    }
-    .advantages-list{
-        grid-template-columns: repeat(2, 1fr);
+@media (max-width: 1120px) {
+    .advantages_feedback-form input{
+        width: 100px;
+        flex-grow: 1;
     }
 }

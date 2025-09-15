@@ -21,8 +21,8 @@
     }
 
     &_list{
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        display: flex;
+        flex-wrap: wrap;
         gap: 16px;
     }
     
@@ -35,7 +35,9 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 292px;
+    height: 292px;
+    width: 448px;
+    flex-grow: 1;
 
     &-header{
         display: flex;
@@ -80,22 +82,3 @@
     }
 }
 
-@media screen and (max-width: 1400px) {
-    .reviews_list{
-        grid-template-columns: repeat(3, 1fr);
-    }
-    
-}
-
-@media screen and (max-width: 992px) {
-    .reviews_list{
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-}
-@media screen and (max-width: 576px) {
-    .reviews_list{
-        grid-template-columns: 1fr;
-    }
-    
-}

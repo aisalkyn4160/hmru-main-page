@@ -108,12 +108,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-//main padding and sticky header
+//sticky header
 document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('.header');
-    const main = document.querySelector('main');
-    
-
     
     const handleScroll = () => {
         if (window.scrollY > 50) {

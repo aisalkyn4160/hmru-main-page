@@ -1,11 +1,28 @@
-@media screen and (max-width: 1250px) {
-  .footer__top_content {
-    gap: 30px;
+@media (max-width: 1680px) {
+  .footer__top_content{
+    flex-wrap: wrap;
   }
-  .footer__bottom {
-    padding-bottom: 100px;
+  .footer__col.social{
+    max-width: unset;
+    width: 49%;
+  }
+  .footer__support{
+    max-width: unset;
+    width: 49%;
   }
 }
+
+@media (max-width:1450px) {
+  .footer__col.social{
+    max-width: unset;
+    width: 23%;
+  }
+  .footer__support{
+    max-width: unset;
+    width: 23%;
+  }
+}
+
 
 @media screen and (max-width: 992px) {
   .footer__catalog, .footer__menu {

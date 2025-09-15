@@ -5,24 +5,32 @@
 
   &__top {
     background: #f7f8fa;
-    padding: 4px;
+    padding: 10px 0;
     height: 50px;
 
     .container {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      position: relative;
     }
 
     &_other {
       display: flex;
       align-items: center;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 40px;
+      padding-top: 5px;
+      background-color: #F7F7F8;
+      padding-left: 15px;
     }
     
 
   }
   &__bottom {
-      padding: 28px 0;
+      padding: 23px 0;
       background: white;
     .container {
       display: flex;
@@ -396,18 +404,33 @@
   display: none !important;
 }
 
-// Состояние хедера при скролле
-.header-scrolled {
-  .header__top {
-    display: none;
+.header {
+  &__top {
+    transition: transform 0.3s ease;
   }
   
-  .header__bottom {
+  &__bottom {
     position: fixed;
-    top: 0;
+    top: 50px; 
     left: 0;
     width: 100%;
     z-index: 999;
+    transition: top 0.2s ease;
   }
+}
+
+
+.header-scrolled {
+    .header__top {
+      // transform: translateY(-100%);
+    }
+  
+  .header__bottom {
+    top: 0;
+  }
+}
+
+main {
+  padding-top: 124px; 
 }
 

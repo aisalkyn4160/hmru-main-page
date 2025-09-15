@@ -32,6 +32,7 @@
         border-radius: 32px;
         padding: 32px;
         width: 100%;
+        min-width: 448px;
         height: 600px;
         // aspect-ratio: 1/1;
         overflow: hidden;
@@ -176,27 +177,3 @@
   object-fit: cover !important;
 }
 
-@media screen and (max-width: 992px) {
-  .videos_header{
-    a{
-      font-size: 46px;
-    }
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .videos_header{
-    a{
-      font-size: 32px;
-
-      svg{
-        width: 40px;
-        height: 40px;
-      }
-    }
-  }
-
-  .videos_list{
-    grid-template-columns: 1fr;
-  }
-}
