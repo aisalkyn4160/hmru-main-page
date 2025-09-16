@@ -36,7 +36,8 @@
     flex-direction: column;
     justify-content: space-between;
     height: 292px;
-    width: 448px;
+    width: calc(100% / 4 - 16px);
+    min-width: 430px;
     flex-grow: 1;
 
     &-header{
