@@ -14,7 +14,8 @@
         gap: 16px;
     }
     &_item{
-        width: 448px;
+        width: calc(100% / 4 - 16px);
+        min-width: 430px;
         flex-grow: 1;
         border-radius: 32px;
         overflow: hidden;
