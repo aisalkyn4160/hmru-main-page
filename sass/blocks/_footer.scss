@@ -110,6 +110,11 @@
       gap: 10px;
       width: fit-content;
       color: #FFF !important;
+      transition: color .3s ease;
+
+      &:hover {
+        color: #0071E3 !important;
+      }
     }
   }
 
@@ -128,7 +133,7 @@
       font-weight: 400 !important;
 
       &:hover {
-        opacity: 0.7;
+        color: #0071E3 !important;
       }
     }
   }
@@ -163,6 +168,12 @@
         font-size: 16px;
         font-weight: 300;
         color: #FFF !important;
+
+        transition: color .3s ease;
+
+        &:hover {
+          color: #0071E3 !important;
+        }
       }
     }
     &_title {
@@ -178,7 +189,7 @@
       color: #fff !important;
       white-space: nowrap;
       &:hover {
-        opacity: 0.7;
+        color: #0071E3 !important;
       }
     }
     .footer__buttons {

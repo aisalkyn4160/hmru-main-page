@@ -85,7 +85,6 @@
         display: flex;
         align-items: center;
         column-gap: 28px;
-        gap: 10px;
         margin: 0 auto;
         position: relative;
 
@@ -101,7 +100,7 @@
         label{
             position: absolute;
             left: 0;
-            top: -5px;
+            top: -3px;
             flex-shrink: 0;
             width: 24px;
             height: 24px;

@@ -26,7 +26,7 @@
             width: 100%;
             height: 556px;
             object-fit: cover;
-            object-position: center;
+            object-position: left;
             border-radius: 16px;
         }
         &-btns{
@@ -68,7 +68,9 @@
     }
 }
 
-@media (max-width: 1190px) {
-  
+@media (max-width: 1200px) {
+.blogs_item img{
+    height: 460px;
+}
     
 }

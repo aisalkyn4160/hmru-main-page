@@ -111,12 +111,27 @@ document.addEventListener('DOMContentLoaded', () => {
 //sticky header
 document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('.header');
+    const headerTop = document.querySelector('.header__top');
+    const headerBottom = document.querySelector('.header__bottom');
+    let headerBottomOffset = null;
+    let headerBottomHeight = null;
     
     const handleScroll = () => {
-        if (window.scrollY > 50) {
+        if (headerBottomOffset === null) {
+            headerBottomOffset = headerTop.offsetHeight;
+            headerBottomHeight = headerBottom.offsetHeight;
+        }
+        
+        const scrollY = window.scrollY;
+        
+        if (scrollY >= headerBottomOffset) {
             header.classList.add('header-scrolled');
+            headerBottom.classList.add('fixed');
+            document.body.style.paddingTop = headerBottomHeight + 'px';
         } else {
             header.classList.remove('header-scrolled');
+            headerBottom.classList.remove('fixed');
+            document.body.style.paddingTop = '0';
         }
     };
 
@@ -217,12 +232,21 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     const productsSlider = new Swiper('.products-swiper', {
-        slidesPerView: 'auto',
+        // slidesPerView: 'auto',
+        slidesPerView: 4,
         spaceBetween: 16,
         loop: true,
         pagination: {
             el: '.swiper-pagination',
             clickable: true,
+        },
+        breakpoints: {
+            0: {
+                slidesPerView: 'auto',
+            },
+            1840: {
+                slidesPerView: 4,
+            },
         }
         
     })

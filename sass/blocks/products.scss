@@ -2,13 +2,13 @@
     padding-top: 40px;
     
     &-swiper{
-        padding-bottom: 80px !important;
         .swiper-slide{
-            width: 448px;
-            margin-right: 16px;
+            width: 100%;
         }
         .swiper-pagination{
+            position: static;
             margin-bottom: 40px;
+            margin-top: 32px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -107,5 +107,8 @@
 @media (max-width:1840px) {
     .products{
         margin-right: -40px;
+    }
+    .products-swiper .swiper-slide{
+        width: 448px;
     }
 }
