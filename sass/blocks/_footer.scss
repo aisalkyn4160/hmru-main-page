@@ -91,11 +91,13 @@
     }
   }
   &__catalog {
-    width: 100%;
+    width: calc(100% / 3 - 16px);
+    // width: 100%;
     max-width: 448px;
   }
   &__menu {
-    width: 100%;
+    width: calc(100% / 3 - 16px);
+    // width: 100%;
     max-width: 448px;
   }
   &__social {
