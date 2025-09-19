@@ -177,3 +177,9 @@
   object-fit: cover !important;
 }
 
+@media (max-width: 1840px) {
+  .videos .swiper-slide{
+    width: 602px;
+  }
+  
+}

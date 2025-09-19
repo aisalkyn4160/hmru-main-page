@@ -250,6 +250,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
     })
+    const videosSlider = new Swiper('.videos_list', {
+        // slidesPerView: 'auto',
+        slidesPerView: 3,
+        spaceBetween: 16,
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        breakpoints: {
+            0: {
+                slidesPerView: 'auto',
+            },
+            1840: {
+                slidesPerView: 3,
+            },
+        }
+        
+    })
 });
 
 document.addEventListener('DOMContentLoaded', () => {
