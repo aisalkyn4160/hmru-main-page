@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const basket = document.querySelector('.basket');
         const cross = document.querySelector('.cross');
         const body = document.body;
+        document.querySelector('.header__discount-dropdown').classList.remove('active');
 
         document.getElementById('show-catalog').classList.toggle('is_active');
         basket.classList.toggle('hide');
@@ -366,9 +367,13 @@ document.addEventListener('DOMContentLoaded', function(){
 document.addEventListener('DOMContentLoaded', function(){
     const headerDiscount = document.querySelector('.header__discount');
     const headerDiscountDropdown = document.querySelector('.header__discount-dropdown');
+    const catalogMenu = document.querySelector('.catalog-menu');
+    const headerCatTr = document.querySelector('.header__catalog_trigger');
 
     headerDiscount.addEventListener('click', () => {
         headerDiscountDropdown.classList.toggle('active');
+        catalogMenu.classList.remove('active');
+        headerCatTr.classList.remove('is_active');
     })
 });
    
