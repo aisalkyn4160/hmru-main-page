@@ -264,7 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
             0: {
                 slidesPerView: 'auto',
             },
-            1840: {
+            1440: {
                 slidesPerView: 3,
             },
         }
