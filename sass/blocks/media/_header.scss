@@ -13,7 +13,15 @@
     flex-grow: 1;
   }
 }
-
+@media (max-width: 1170px) {
+  .header__top_other .header__nav_more{
+    display: block;
+    width: 56px;
+    height: 26px;
+    margin-right: 16px;
+  }
+  
+}
 @media screen and (max-width: 1020px) {
   .header__links {
     position: fixed;
