@@ -34,10 +34,10 @@ a:not([class]) {
   text-decoration-skip-ink: auto;
 }
 
-a:active, /* активная/посещенная ссылка */
-a:hover,  /* при наведении */
+a:active, /* активная/посещенная ссылка */ 
 a {
   text-decoration: none;
+  color: inherit;
   //color: var(--main-color);
 }
 
