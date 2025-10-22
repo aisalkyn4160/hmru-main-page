@@ -244,6 +244,11 @@ document.addEventListener('DOMContentLoaded', () => {
         breakpoints: {
             0: {
                 slidesPerView: 'auto',
+                spaceBetween: 8,
+            },
+            768: {
+                slidesPerView: 'auto',
+                spaceBetween: 16,
             },
             1840: {
                 slidesPerView: 4,
@@ -602,3 +607,103 @@ $(function () {
         $(this).siblings('ul').slideToggle();
     })
 })
+
+// ----------------------------------more-menu----------------------------------
+document.addEventListener('DOMContentLoaded', () => {
+    const nav = document.querySelector('.header__top');
+    const menuList = document.querySelector('.menu-list');
+    const moreMenu = document.querySelector('.more-menu');
+    const moreSubmenu = document.querySelector('.more-submenu');
+    let allMenuItems = Array.from(document.querySelectorAll('.menu-item:not(.more-menu)'));
+    
+    // Обработка клика по кнопке "Ещё"
+    const moreLink = moreMenu.querySelector('.menu-link');
+    moreLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        moreMenu.classList.toggle('active');
+    });
+    
+    // Функция адаптации меню
+    function adaptMenu() {
+        const navContainer = document.querySelector('.nav-container');
+        const navRight = document.querySelector('.nav-right');
+        const containerWidth = navContainer.offsetWidth;
+        const rightWidth = navRight.offsetWidth;
+        const moreMenuWidth = moreMenu.offsetWidth;
+        const padding = 180;
+        const availableWidth = containerWidth - rightWidth - padding - moreMenuWidth;
+        
+        let totalWidth = 0;
+        let hiddenItems = [];
+        
+        // Сбрасываем состояние - показываем все пункты
+        allMenuItems.forEach(item => {
+            item.classList.remove('hidden');
+        });
+        moreSubmenu.innerHTML = '';
+        
+        // Вычисляем, какие пункты помещаются
+        allMenuItems.forEach((item) => {
+            const itemWidth = item.offsetWidth;
+            
+            if (totalWidth + itemWidth > availableWidth) {
+                hiddenItems.push(item);
+                item.classList.add('hidden');
+            } else {
+                totalWidth += itemWidth;
+            }
+        });
+        
+        // Сохраняем постоянные пункты меню "Ещё"
+        const permanentItems = [
+            { text: 'Готовые решения', href: '#' },
+            { text: 'Сервис и гарантия', href: '#' },
+            { text: 'Доставка', href: '#' }
+        ];
+        
+        // Сначала добавляем скрытые элементы
+        hiddenItems.forEach(item => {
+            const link = item.querySelector('.menu-link');
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = link.href;
+            a.className = 'submenu-link';
+            a.textContent = link.textContent.trim();
+            
+            li.appendChild(a);
+            moreSubmenu.appendChild(li);
+        });
+        
+        // Затем добавляем постоянные пункты
+        permanentItems.forEach(item => {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = item.href;
+            a.className = 'submenu-link';
+            a.textContent = item.text;
+            
+            li.appendChild(a);
+            moreSubmenu.appendChild(li);
+        });
+    }
+    
+    // Инициализация
+    adaptMenu();
+    
+    // Адаптация при изменении размера окна
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            adaptMenu();
+        }, 100);
+    });
+    
+    // Закрытие подменю при клике вне меню
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.header__top')) {
+            moreMenu.classList.remove('active');
+        }
+    });
+});
+

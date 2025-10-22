@@ -1,4 +1,8 @@
 .banner{
+   
+
+   
+
     &__item{
         width: 100%;
         min-height: 800px;
@@ -10,6 +14,10 @@
         align-items: center;
         overflow: hidden;
         position: relative;
+        background-image:url('/banner.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50% 0;
 
         h2{
             margin-bottom: 16px;
@@ -93,6 +101,25 @@
 
 @media (max-width: 992px) {
     .banner__item{
-        min-height: calc(100vh - 175px);
+        min-height: 500px;
+    }
+}
+
+@media (max-width: 576px) {
+    .banner__item{
+        padding: 16px;
+        background-image: url('/banner-mob.png');
+        background-position: center;
+        border-radius: 16px;
+    }
+    .banner-swiper .swiper-pagination{
+        margin-bottom: 20px;
+    }
+    .banner-swiper .swiper-pagination-bullet{
+        margin: 0 !important;
+    }
+    .banner-swiper .banner-next,
+    .banner-swiper .banner-prev{
+        display: none;
     }
 }

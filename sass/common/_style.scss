@@ -100,6 +100,9 @@ body {
   min-height: 100vh;
   overflow: hidden;
 }
+.page-content{
+    background-color: #f7f7f8;
+}
 
 .lock {
   overflow: hidden;
@@ -138,7 +141,7 @@ p{
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
-  margin: 0 0 10px 0;
+  margin: 32px 0 10px;
   width: auto;
   a {
     text-decoration: none;
@@ -229,15 +232,19 @@ p{
   
 }
 @media screen and (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
   h2{
     font-size: 32px;
+  }
+  h4{
+    font-size: 18px;
   }
   .page__title {
     font-size: 36px;
   }
-  .container {
-    padding: 0 15px;
-  }
+
 }
 
 @media screen and (max-width: 576px) {
