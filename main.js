@@ -262,12 +262,18 @@ document.addEventListener('DOMContentLoaded', () => {
         spaceBetween: 16,
         loop: true,
         pagination: {
-            el: '.swiper-pagination',
+            el: '.videos .swiper-pagination',
             clickable: true,
         },
         breakpoints: {
             0: {
                 slidesPerView: 'auto',
+                spaceBetween: 8,
+
+            },
+            768: {
+                slidesPerView: 'auto',
+                spaceBetween: 16,
             },
             1440: {
                 slidesPerView: 3,

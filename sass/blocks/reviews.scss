@@ -83,3 +83,41 @@
     }
 }
 
+@media (max-width: 767px) {
+    .reviews{
+        padding-bottom: 68px;
+        position: relative;
+
+        .view-all-btn{
+            position: absolute;
+            bottom: 16px;
+            right: 50%;
+            transform: translateX(50%);
+        }
+
+        &_header{
+            margin-bottom: 16px;
+
+            &-logo{
+                > svg{
+                width: 92px;
+                height: 26px;
+            }
+            }
+        }
+        &_list{
+            gap: 8px;
+        }
+        .review__item{
+            border-radius: 16px;
+            padding: 16px;
+            height: 260px;
+            min-width: 0;
+            width: 100%;
+
+            &:not(:nth-child(-n+3)){
+                display: none;
+            }
+        }
+    }
+}

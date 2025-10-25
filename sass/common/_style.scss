@@ -221,7 +221,23 @@ p{
   gap: 15px;
   white-space: nowrap;
 }
-
+ .swiper-pagination{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+    }
+    .swiper-pagination-bullet{
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background-color: #fff;
+        opacity: 1;
+    }
+    .swiper-pagination-bullet-active{
+        background-color: #0071E3;
+    }
 @media screen and (max-width: 992px) {
  h2{
   font-size: 46px;
@@ -244,12 +260,30 @@ p{
   .page__title {
     font-size: 36px;
   }
+  .view-all-btn{
+      height: 36px;
+            gap: 8px;
+            border-radius: 16px;
+            border: 1px solid #0071E333;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 9px 16px;
+
+            svg{
+                width: 6px;
+                height: 11px;
+            }
+  }
 
 }
 
 @media screen and (max-width: 576px) {
   h2{
     hyphens: auto;
+    font-size: 22px;
+  }
+  h4{
+    font-size: 14px;
   }
   .page__title {
     font-size: 32px;
@@ -258,6 +292,9 @@ p{
     a {
       font-size: 12px;
     }
+  }
+  .swiper-pagination{
+    gap: 8px;
   }
 }
 
