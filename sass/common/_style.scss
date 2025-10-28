@@ -274,12 +274,15 @@ p{
                 height: 11px;
             }
   }
-
+  .btn{
+    font-size: 14px;
+    padding: 10px 20px;
+    height: 40px;
+  }
 }
 
 @media screen and (max-width: 576px) {
   h2{
-    hyphens: auto;
     font-size: 22px;
   }
   h4{
@@ -295,6 +298,9 @@ p{
   }
   .swiper-pagination{
     gap: 8px;
+  }
+  p{
+    font-size: 14px;
   }
 }
 

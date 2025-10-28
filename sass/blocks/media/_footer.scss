@@ -4,7 +4,7 @@
   }
   .footer__col.social{
     max-width: unset;
-    width: 49%;
+    width: 48%;
   }
   .footer__support{
     max-width: unset;
@@ -63,9 +63,19 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .footer__top {
-    padding: 40px 0;
+    padding: 24px 0;
+  }
+  .footer__social_item,
+  .footer__support_item{
+    svg{
+      width: 32px;
+      height: 32px;
+    }
+  }
+  .footer p, .footer a{
+    font-size: 14px;
   }
   .footer__form_title {
     font-size: 36px;
@@ -74,12 +84,9 @@
 
 @media screen and (max-width: 576px) {
   .footer {
-    margin-top: 80px;
+    // margin-top: 80px;
     &__top_content {
-      gap: 10px;
-      .footer__news, .footer__buttons {
-        display: none;
-      }
+      gap: 10px; 
     }
     &__title {
       font-size: 12px;

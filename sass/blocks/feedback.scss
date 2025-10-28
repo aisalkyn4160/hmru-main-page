@@ -95,7 +95,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #FFFFFF;
+            background: transparent;
         }
         label{
             position: absolute;
@@ -138,5 +138,47 @@
     }
     .feedback_img{
         position: static;
+    }
+}
+
+@media (max-width: 767px) {
+    .feedback{
+        margin: 16px 0;
+        padding: 24px;
+        border-radius: 24px;
+        min-height: unset;
+
+        h2{
+            margin-bottom: 8px;
+        }
+    }
+    .feedback_content form{
+        margin-top: 16px;
+        gap: 8px;
+
+        input,
+        textarea{
+            border-radius: 16px;
+            font-size: 14px;
+            padding: 10px 16px;
+            height: 40px;
+        }
+        .btn{
+            margin-top: 8px;
+        }
+    }
+    .feedback_privacy{
+        margin-top: 16px;
+        font-size: 14px;
+
+        label{
+            top: 11px;
+        }
+    }
+    .feedback_content form span{
+        text-align: left;
+    }
+    .feedback_img{
+        display: none;
     }
 }
