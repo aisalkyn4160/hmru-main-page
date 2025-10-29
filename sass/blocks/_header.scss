@@ -57,7 +57,9 @@
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
   }
-
+  &__mobile-btns{
+    display: none;
+  } 
   &__nav {
     display: flex;
     align-items: center;
@@ -205,6 +207,7 @@
     height: 76px;
     flex-shrink: 0;
     display: block;
+    margin-right: 16px;
     // padding: 5px 6px 10px 8px;
 
     img {
@@ -365,6 +368,10 @@
     align-items: center;
     gap: 16px;
     justify-content: flex-end;
+
+    &_menu{
+      display: none;
+    }
     a {
       flex-shrink: 0;
       width: 60px;
@@ -380,17 +387,17 @@
       span {
         display: inline-block;
         position: absolute;
-        top: 0px;
-        right: 0px;
+        top: -3px;
+        right: -3px;
         background: #0071E3;
         color: #fff;
         font-size: 13px;
         font-weight: 400;
         padding: 0 5px;
         border-radius: 50px;
-
-        min-height: 16px;
-        min-width: 16px;
+        border: 3px solid #fff; 
+        min-height: 19px;
+        min-width: 19px;
       }
 
       svg {
@@ -409,7 +416,8 @@
 
       &.links_for_in4 {
         span {
-          right: 5px;
+          // right: 5px;
+          
         }
       }
     }

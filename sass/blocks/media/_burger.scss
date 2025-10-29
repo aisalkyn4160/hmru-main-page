@@ -56,12 +56,13 @@
   .burger-menu {
     display: block !important;
     position: fixed;
-    top: 66px;
+    top: 0px;
     left: -100%;
     height: 100%;
     width: 100%;
     transition: all 0.3s ease 0s;
     z-index: 10;
+    
 
     &.active {
       left: 0;
@@ -71,7 +72,7 @@
       opacity: 1;
       pointer-events: all;
     }
-
+   
     &__heading {
       font-size: 36px;
       font-style: normal;
@@ -92,9 +93,9 @@
       left: 0;
       height: 100%;
       width: 100%;
-      background: #fff;
+      background: #F7F7F8;
       z-index: 150;
-      padding: 30px;
+      padding: 8px 16px;
       overflow: auto;
       padding-bottom: 85px;
     }
@@ -131,10 +132,37 @@
     &__menu {
       padding: 20px 0;
       border-bottom: 1px solid #e7e7e7;
+      .main-menu{
+        margin-bottom: 16px;
+        li{
+          a{
+            font-size: 15px;
+            font-weight: 600;
+            color: #2C3336;
+            padding: 10px 0;
+          }
+        }
+      }
+      .menu{
+        margin-bottom: 16px;
+        li{
+          border-bottom: 1px solid #E1E1E5;
+          padding: 10px 0;
+
+          &:last-child{
+            border-bottom: none;
+          }
+          a{
+            font-size: 15px;
+            font-weight: 400;
+            color: #70828A;
+            
+          }
+        }
+      }
       ul {
         display: flex;
         flex-direction: column;
-        gap: 20px;
         list-style-type: none;
         padding: 0;
       }
@@ -170,30 +198,28 @@
       }
     }
     &__contacts {
+      width: 328px;
       padding: 20px 0;
-
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
       flex-direction: column;
       gap: 10px;
+
       &_left {
+        width: 100%;
         display: flex;
-        align-items: center;
-        gap: 20px;
-        flex-wrap: wrap;
-        * {
-          margin: 0;
-          font-size: 16px;
+        justify-content: space-between;
+        gap: 10px;
+
+        .header__whatsapp{
+          margin-left: auto;
         }
-        .header__telegram {
-          width: 46px;
-          height: 46px;
-          svg {
-            width: 100%;
-            height: 100%;
-          }
-        }
+      }
+      &_right {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
       }
     }
     &__phone {

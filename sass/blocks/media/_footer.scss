@@ -92,6 +92,7 @@
       font-size: 12px;
     }
     &__support {
+      max-width: 160px;
       &_title {
         font-size: 12px;
       }
@@ -103,41 +104,39 @@
       padding-bottom: 30px;
     }
     &__bottom {
-      padding-top: 20px;
+      padding-top: 8px;
+      padding-bottom: 95px;
+
+      &_content {
+        flex-direction: column;
+        gap: 0px;
+      }
       p, a, .footer__bottom_copy {
-        font-size: 12px;
+        font-size: 12px ! important;
       }
     }
 
 
-    &__mobile {
-      margin-top: 20px;
-
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-
-      .footer__buttons {
-        display: grid;
-        grid-template: auto / repeat(2, 1fr);
-        width: 100%;
-      }
-    }
   }
   .footer__form {
     position: relative;
     padding-bottom: 70px;
     &_input, &_button {
-      height: 50px;
-      font-size: 16px;
-      padding: 0 17px;
+      height: 40px;
+      font-size: 14px;
+      padding: 10px;
+      width: 100%;
+      text-align: center;
     }
   }
   .footer__form_title {
-    font-size: 30px;
-    line-height: 1.2;
+    display: block;;
+    font-size: 22px;
+    line-height: normal;
+    margin-bottom: 16px;
   }
   .footer__form_right {
+    flex-direction: column;
     gap: 10px;
   }
   .footer__support_wrapper, .footer__col {
@@ -145,20 +144,28 @@
   }
   .footer__buttons_item {
     white-space: nowrap;
+    height: 40px;
+    padding: 10px 8px;
+    font-size: 14px;
+  }
+  .footer__form_privacy{
+    top: 190px;
+    bottom: unset;
+    font-size: 12px;
   }
 }
 
-@media screen and (max-width: 425px) {
-  .footer__form_right {
-    flex-direction: column;
-  }
-  .footer__form_button {
-    width: 100%;
-  }
-}
+// @media screen and (max-width: 425px) {
+//   .footer__form_right {
+//     flex-direction: column;
+//   }
+//   .footer__form_button {
+//     width: 100%;
+//   }
+// }
 
-@media screen and (max-width: 355px) {
-  .footer__buttons, .footer__news_form {
-    grid-template: auto / 1fr !important;
-  }
-}
+// @media screen and (max-width: 355px) {
+//   .footer__buttons, .footer__news_form {
+//     grid-template: auto / 1fr !important;
+//   }
+// }
