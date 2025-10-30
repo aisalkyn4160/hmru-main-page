@@ -44,3 +44,119 @@
 //   }
 
 // }
+
+@media (max-width: 1020px) {
+    .header__catalog_trigger{
+        background-color: unset;
+        width: auto;
+        height: auto;
+        display: block;
+        padding: 10px 0;
+        
+        span{
+            font-size: 15px;
+            font-weight: 600;
+            color: #2C3336;
+            line-height: normal;
+            
+        }
+    }
+    .catalog-menu{
+        // left: 0;
+        // opacity: 1;
+        // visibility: visible;
+        // pointer-events: all;
+        top: 0;
+        height: 100vh;
+       
+
+        &__title{
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 19px;
+            font-weight: 600;
+            margin-bottom: 8px;
+
+            span{
+                cursor: pointer;
+            }
+        }
+        &__content{
+            padding: 16px;
+        }
+      
+    }
+    .catalog-menu__list{
+        width: 100%;
+        margin-bottom: 0 !important;
+        padding: 0 0 20px 0;
+        gap: 0;
+        flex-direction: row !important;
+        flex-wrap: wrap;
+
+        li{
+            padding: 10px 0;
+            border-bottom: 1px solid #E1E1E5;
+        }
+    }
+     .catalog-menu__list .big-sale{
+        margin-right: 8px;
+     }
+    .catalog-menu__list .big-sale, .catalog-menu__list .discount {
+        width: calc(50% - 8px);
+        height: unset;
+        aspect-ratio: 2/1;
+        min-height: 100px;
+        border: none;
+        
+        a{
+            font-size: 16px;
+        }
+    }
+    .has-sublist{
+        position: relative;
+        &__arrow{
+            display: block;
+            position: absolute;
+            top: 14px;
+            right: 0;
+            transition: all .2s ease;
+            cursor: pointer;
+        }
+    }
+  .has-sublist:hover .catalog-menu__sublist{
+    display: none;
+  }
+    .catalog-menu__sublist{
+        position: fixed;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #F7F7F8;
+        left: -100%;
+        column-count: 1;
+        transition: all .5s ease;
+
+        &.active{
+            left: 0;
+        }
+
+        li:first-child{
+            border: none;
+        }
+        li{
+            ul{
+                display: none;
+            }
+        }
+      
+    }
+    .catalog-menu__link{
+        font-size: 15px ! important;
+        color: #0071E3 ! important;
+        font-weight: 500 ! important;
+        padding: 10px 0;
+    }
+   
+}

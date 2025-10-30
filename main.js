@@ -65,6 +65,48 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+
+document.addEventListener('DOMContentLoaded', () => {
+    const showCatalogMenu = document.querySelector('#show-catalog-menu');
+    const catalogMenu = document.querySelectorAll('.catalog-menu');
+    
+    showCatalogMenu?.addEventListener('click', () => {
+        catalogMenu.forEach(menu => menu.classList.toggle('active'));
+    
+    });
+})
+
+document.addEventListener('DOMContentLoaded', () => {
+    const closeMenu = document.querySelector('.close-menu');
+
+    closeMenu?.addEventListener('click', () => {
+        const catalogMenu = document.querySelectorAll('.catalog-menu');
+        catalogMenu.forEach(menu => menu.classList.remove('active'));
+        
+    });
+
+    const subMenuCloseMenu = document.querySelector('.catalog-menu__sublist .close-menu');
+
+    subMenuCloseMenu?.addEventListener('click', () => {
+        const catalogMenu = document.querySelectorAll('.catalog-menu__sublist');
+        catalogMenu.forEach(menu => menu.classList.remove('active'));
+        
+    });
+
+})
+document.addEventListener('DOMContentLoaded', () => {
+    const hasSubListArrows = document.querySelectorAll('.has-sublist__arrow');
+
+
+    hasSubListArrows.forEach(item => {
+        item.addEventListener('click', () => {
+            item.classList.toggle('active');    
+
+            const submenu = item.closest('.has-sublist').querySelector('.catalog-menu__sublist');
+            submenu.classList.toggle('active');
+        });
+    })
+})
 //burger
 document.addEventListener('DOMContentLoaded', () => {
     const toggleClass = (elem, cls) => elem.classList.toggle(cls);

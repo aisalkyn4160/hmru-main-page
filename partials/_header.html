@@ -314,7 +314,7 @@
             </a>
          </div>
          <div class="header__links">
-            <div class="header_link_menu" id="mobile-burger">
+            <div class="header__links_menu" id="mobile-burger">
                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M4 4.08008H20V6.08008H4V4.08008Z" fill="#2C3336"/>
                   <path d="M4 11H20V13H4V11Z" fill="#2C3336"/>
@@ -354,22 +354,21 @@
    <div class="burger-menu__content">
       <div class="burger-menu__menu">
         <div class="header__catalog">
-               <div class="header__catalog_trigger" id="show-catalog">
-                  <svg class="header__catalog__open" width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M4.5 4.08008H20.5V6.08008H4.5V4.08008Z" fill="white"/>
-                  <path d="M4.5 11H20.5V13H4.5V11Z" fill="white"/>
-                  <path d="M4.5 17.9199H20.5V19.9199H4.5V17.9199Z" fill="white"/>
-                  </svg>
-
-                  <svg class="header__catalog__close" width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M10.8846 9L18.5 16.6154L17.1154 18L9.5 10.3846L1.88462 18L0.5 16.6154L8.11538 9L0.5 1.38462L1.88462 0L9.5 7.61538L17.1154 0L18.5 1.38462L10.8846 9Z" fill="white"/>
-                  </svg>
-
-
+               <div class="header__catalog_trigger" id="show-catalog-menu">
                   <span>Каталог</span>
                </div>
                <div class="catalog-menu">
                   <div class="catalog-menu__content">
+                     <div class="catalog-menu__title">
+                        <span class="close-menu">
+                           <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <rect x="0.5" y="0.5" width="39" height="39" rx="5.5" stroke="#E1E1E5"/>
+                           <path d="M21.7754 23.5L18.2246 19.5L21.7754 15.5" stroke="#70828A" stroke-linecap="round"/>
+                           </svg>
+
+                        </span>
+                        <div>Каталог</div>
+                     </div>
                      <ul class="catalog-menu__list">
                         <li class="has-sublist">
                            <a href="#">Упаковочное оборудование <sup>58</sup></a>
@@ -378,7 +377,19 @@
                                  <path d="M1.5 0.5L6.5 5.5L1.5 10.5" stroke="black"/>
                               </svg>
                            </span>
+
                            <ul class="catalog-menu__sublist">
+                              <li>
+                                 <div class="catalog-menu__title">
+                                    <span class="close-menu">
+                                       <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                       <rect x="0.5" y="0.5" width="39" height="39" rx="5.5" stroke="#E1E1E5"/>
+                                       <path d="M21.7754 23.5L18.2246 19.5L21.7754 15.5" stroke="#70828A" stroke-linecap="round"/>
+                                       </svg>
+                                    </span>
+                                    <div>Упаковочное оборудование</div>
+                                 </div>
+                              </li>
                               <li class="has-sublist">
                                  <a href="">Вакуумные упаковщики <sup>18</sup></a>
                                  <div class="sublist__arrow">
@@ -562,10 +573,6 @@
                      </ul>
                      <a href="/catalog.html" class="catalog-menu__link">
                         Перейти в каталог
-                        <svg width="10" height="17" viewBox="0 0 10 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 1L8.5 8.5L1 16" stroke="#0071E3"/>
-                        </svg>
-
                      </a>
                   </div>
                </div>
