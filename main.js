@@ -75,14 +75,15 @@ document.addEventListener('DOMContentLoaded', () => {
     
     });
 })
-
 document.addEventListener('DOMContentLoaded', () => {
-    const closeMenu = document.querySelector('.close-menu');
+    const closeMenus = document.querySelectorAll('.close-menu');
 
-    closeMenu?.addEventListener('click', () => {
-        const catalogMenu = document.querySelectorAll('.catalog-menu');
-        catalogMenu.forEach(menu => menu.classList.remove('active'));
-        
+    closeMenus.forEach(item => {
+         console.log(item.parentNode.parentNode.parentNode);
+        item.addEventListener('click', () => {
+
+            item.parentNode.parentNode.parentNode.classList.remove('active');
+        });
     });
 
     const subMenuCloseMenu = document.querySelector('.catalog-menu__sublist .close-menu');
@@ -123,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
         trigger.addEventListener('click', () => {
             toggleClass(trigger.parentElement, 'is-active');
             const submenu = trigger.nextElementSibling;
-            submenu && (submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block');
+            // submenu && (submenu.style.left = submenu.style.left === '0' ? '-100%' : '0');
         });
     });
 });
@@ -523,28 +524,30 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 // ---------------------------has-submenu-accordion----------------------------
-document.addEventListener('DOMContentLoaded', function(){
-    const hasSubListArrows = document.querySelectorAll('.has-sublist__arrow');
+// document.addEventListener('DOMContentLoaded', function(){
+//     const hasSubListArrows = document.querySelectorAll('.has-sublist__arrow');
 
 
-    hasSubListArrows.forEach(item => {
-        item.addEventListener('click', () => {
-            item.classList.toggle('active');
+//    if(window.innerWidth > 1020){
+//      hasSubListArrows.forEach(item => {
+//         item.addEventListener('click', () => {
+//             item.classList.toggle('active');
 
-            if (item.classList.contains('active')) {
-                item.style.transform = 'rotate(-90deg)';
-            } else {
-                item.style.transform = 'rotate(90deg)';
-            }
+//             if (item.classList.contains('active')) {
+//                 item.style.transform = 'rotate(-90deg)';
+//             } else {
+//                 item.style.transform = 'rotate(90deg)';
+//             }
 
-            const submenu = item.closest('.has-sublist').querySelector('.catalog-menu__sublist');
+//             const submenu = item.closest('.has-sublist').querySelector('.catalog-menu__sublist');
 
-            if (submenu) {
-                submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
-            }
-        })
-    })
-});
+//             if (submenu) {
+//                 submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+//             }
+//         })
+//     })
+//    }
+// });
 
 // ----------------------------advantages-popup----------------------------
 document.addEventListener('DOMContentLoaded', function(){

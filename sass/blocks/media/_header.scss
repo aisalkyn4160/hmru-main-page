@@ -22,35 +22,6 @@
   }
   
 }
-@media screen and (max-width: 1020px) {
-  .header__links {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 20px 16px 20px;
-    background: #fff;
-    justify-content: center;
-    gap: 26px;
-    z-index: 99999;
-    box-shadow: 0px -5px 25px 0px rgba(87, 87, 87, 0.1);
-
-    &_menu{
-      display: block;
-    }
-
-    a{
-      background-color: #fff;
-    }
-  }
-  .header__search.main_search_block {
-    margin-left: 0;
-    max-width: 454px;
-    left: unset;
-    right: 0;
-  }
- 
-}
 
 @media screen and (max-width: 1020px) {
   .header__top {
@@ -117,14 +88,7 @@
       right: -5px;
      }
     }
-  
-    //.header__search.main_search_block {
-    //  display: none;
-    //
-    //  max-width: 100%;
-    //  top: 40px;
-    //  padding: 10px 25px;
-    //}
+
     .header__search_trigger {
       display: block;
       cursor: pointer;
@@ -231,9 +195,51 @@
     .link-text {
       flex: 0 0 calc(100% - 66px);
     }
+
+     
   }
 
+ .header__links {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 20px 16px 20px;
+        background: #fff;
+        justify-content: center;
+        gap: 50px;
+        z-index: 99999;
+        box-shadow: 0px -5px 25px 0px rgba(87, 87, 87, 0.1);
 
+        &_menu{
+          display: block;
+          width: 24px;
+          height: 24px;
+        
+          svg{
+            height: 100%;
+          }
+        }
+
+        a{
+          background-color: #fff;
+          width: 24px;
+          height: 24px;
+
+          span{
+            min-width: 10px;
+            min-height: 10px;
+            border-width: 2px;
+            top: 0;
+          }
+        }
+      }
+    .header__search.main_search_block {
+      margin-left: 0;
+      max-width: 454px;
+      left: unset;
+      right: 0;
+    }
 }
 
 @media screen and (max-width: 576px) {
@@ -241,26 +247,12 @@
     padding: 12px 16px;
     gap: 20px;
     justify-content: space-between;
-    .header_link_lk {
-      font-size: 12px;
-    }
-    .links_for_in2, .links_for_in3, .links_for_in4 {
-      margin: 0;
-      a {
-        font-size: 12px;
-        
-      }
-    }
-    a{
+   
+    a, div{
       width: 24px;
       height: 24px; 
       border-radius: 0;
-      span{
-          min-height: 11px;
-          min-width: 11px;
-          padding: 0;
-          border-width: 2px;
-        }
+    
     }
   }
 }
