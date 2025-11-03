@@ -289,19 +289,40 @@
                   </div>
                </div>
             </div>
-            <div class="header__search">
-               <form action="">
-                  <input type="text" placeholder="Поиск оборудования и запчастей по артикулу">
-                  <button>
-                     <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                     <path d="M11.1977 18.3945C12.9055 18.3941 14.5642 17.8224 15.9096 16.7704L20.1394 21L21.5 19.6395L17.2701 15.4099C18.3228 14.0645 18.8949 12.4055 18.8953 10.6972C18.8953 6.45318 15.4419 3 11.1977 3C6.95336 3 3.5 6.45318 3.5 10.6972C3.5 14.9413 6.95336 18.3945 11.1977 18.3945ZM11.1977 4.92431C14.3816 4.92431 16.9709 7.51347 16.9709 10.6972C16.9709 13.881 14.3816 16.4702 11.1977 16.4702C8.01371 16.4702 5.42441 13.881 5.42441 10.6972C5.42441 7.51347 8.01371 4.92431 11.1977 4.92431Z" fill="#2C3336"/>
-                     </svg>
-                  </button>
-               </form>
+            <div class="header__search_wrapper" id="search-wrapper">
+                <div class="header__search">
+                  <form action="" id="search-form">
+                     <input type="text" id="search-input" placeholder="Поиск оборудования и запчастей по артикулу"
+                        autocomplete="off">
+                     <button type="button" class="search-clear" id="search-clear" style="display: none;">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M15 5L5 15M5 5L15 15" stroke="#70828A" stroke-width="2" stroke-linecap="round"
+                              stroke-linejoin="round" />
+                        </svg>
+                     </button>
+                     <button type="submit" class="search-submit">
+                        <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path
+                              d="M11.1977 18.3945C12.9055 18.3941 14.5642 17.8224 15.9096 16.7704L20.1394 21L21.5 19.6395L17.2701 15.4099C18.3228 14.0645 18.8949 12.4055 18.8953 10.6972C18.8953 6.45318 15.4419 3 11.1977 3C6.95336 3 3.5 6.45318 3.5 10.6972C3.5 14.9413 6.95336 18.3945 11.1977 18.3945ZM11.1977 4.92431C14.3816 4.92431 16.9709 7.51347 16.9709 10.6972C16.9709 13.881 14.3816 16.4702 11.1977 16.4702C8.01371 16.4702 5.42441 13.881 5.42441 10.6972C5.42441 7.51347 8.01371 4.92431 11.1977 4.92431Z"
+                              fill="#2C3336" />
+                        </svg>
+                     </button>
+                  
+                  </form>
+                  <svg class="search-close" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7.76005 14.8301L4.93005 17.6601L6.34005 19.0701L9.17005 16.2401L11.2901 14.1201L12.0001 13.4101L12.7101 14.1201L14.1201 15.5401L17.6601 19.0701L19.0701 17.6601L15.5401 14.1201L14.1201 12.7101L13.4101 12.0001L19.0701 6.34005L17.6601 4.93005L12.0001 10.5901L6.34005 4.93005L4.93005 6.34005L10.5901 12.0001L9.88005 12.7101L7.76005 14.8301Z" fill="black"/>
+                  </svg>
+
+               </div>
+               <div class="search-autocomplete" id="search-autocomplete">
+                        <div class="container">
+                           <div class="search-autocomplete__list"></div>
+                        </div>
+               </div>
             </div>
          </div>
          <div class="header__mobile-btns">
-            <div class="serch-btn">
+            <div class="search-btn">
                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                <path d="M10.6977 18.3945C12.4055 18.3941 14.0642 17.8224 15.4096 16.7704L19.6394 21L21 19.6395L16.7701 15.4099C17.8228 14.0645 18.3949 12.4055 18.3953 10.6972C18.3953 6.45318 14.9419 3 10.6977 3C6.45336 3 3 6.45318 3 10.6972C3 14.9413 6.45336 18.3945 10.6977 18.3945ZM10.6977 4.92431C13.8816 4.92431 16.4709 7.51347 16.4709 10.6972C16.4709 13.881 13.8816 16.4702 10.6977 16.4702C7.51371 16.4702 4.92441 13.881 4.92441 10.6972C4.92441 7.51347 7.51371 4.92431 10.6977 4.92431Z" fill="#2C3336"/>
                </svg>

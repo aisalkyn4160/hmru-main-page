@@ -1104,3 +1104,262 @@ document.addEventListener('DOMContentLoaded', () => {
 
     renderCalendar();
 });
+
+
+// ----------------------------------search-autocomplete----------------------------------
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('search-input');
+    const searchForm = document.getElementById('search-form');
+    const searchClear = document.getElementById('search-clear');
+    const autocompleteContainer = document.getElementById('search-autocomplete');
+    const autocompleteList = autocompleteContainer?.querySelector('.search-autocomplete__list');
+
+    if (!searchInput || !autocompleteContainer || !autocompleteList || !searchClear) return;
+
+    const searchData = [
+        { 
+            id: 1, 
+            title: 'Вакуумный упаковщик DZ-400/2T', 
+            category: 'Упаковочное оборудование',
+            price: '45 000',
+            image: '/public/catalog2-2.png'
+        },
+        { 
+            id: 2, 
+            title: 'Вакуумный упаковщик DZ-500/2E', 
+            category: 'Упаковочное оборудование',
+            price: '52 500',
+            image: '/public/catalog2-2.png'
+        },
+        { 
+            id: 3, 
+            title: 'Горизонтальная упаковочная машина HL-450', 
+            category: 'Упаковочное оборудование',
+            price: '78 900',
+            image: '/public/catalog3-2.png'
+        },
+        { 
+            id: 4, 
+            title: 'Запайщик пакетов FRD-1000', 
+            category: 'Упаковочное оборудование',
+            price: '23 700',
+            image: '/public/catalog1-2.png'
+        },
+        { 
+            id: 5, 
+            title: 'Мясорубка промышленная MG-32', 
+            category: 'Мясопереработка',
+            price: '34 800',
+            image: '/public/catalog2-2.png'
+        },
+    ];
+
+    let selectedIndex = -1;
+    let currentResults = [];
+
+    function searchItems(query) {
+        if (!query || query.length < 2) {
+            return [];
+        }
+
+        const normalizedQuery = query.toLowerCase().trim();
+
+        return searchData.filter(item => {
+            const titleMatch = item.title.toLowerCase().includes(normalizedQuery);
+            const categoryMatch = item.category.toLowerCase().includes(normalizedQuery);
+
+            return titleMatch || categoryMatch;
+        });
+    }
+
+    function highlightMatch(text, query) {
+        if (!query) return text;
+
+        const normalizedQuery = query.trim();
+        const regex = new RegExp(`(${normalizedQuery})`, 'gi');
+        return text.replace(regex, '<mark>$1</mark>');
+    }
+
+    function displayResults(results, query) {
+        autocompleteList.innerHTML = '';
+
+        if (results.length === 0) {
+            autocompleteList.innerHTML = '<div class="search-autocomplete__empty">Ничего не найдено</div>';
+            autocompleteContainer.classList.add('active');
+            return;
+        }
+
+        results.forEach((item, index) => {
+            const itemElement = document.createElement('div');
+            itemElement.className = 'search-autocomplete__item';
+            itemElement.dataset.index = index;
+            itemElement.dataset.itemId = item.id;
+
+            itemElement.innerHTML = `
+                <div class="search-autocomplete__item-image">
+                    <img src="${item.image}" alt="${item.title}" onerror="this.style.display='none'">
+                </div>
+                <div class="search-autocomplete__item-content">
+                    <div class="search-autocomplete__item-title">${highlightMatch(item.title, query)}</div>
+                    <div class="search-autocomplete__item-price">${item.price} <span class="currency">₽</span></div>
+                </div>
+            `;
+
+            itemElement.addEventListener('click', () => {
+                selectItem(item);
+            });
+
+            autocompleteList.appendChild(itemElement);
+        });
+
+        autocompleteContainer.classList.add('active');
+    }
+
+    function selectItem(item) {
+        searchInput.value = item.title;
+        hideAutocomplete();
+        console.log('Выбран товар:', item);
+    }
+
+    function hideAutocomplete() {
+        autocompleteContainer.classList.remove('active');
+        selectedIndex = -1;
+        currentResults = [];
+    }
+
+    function toggleClearButton() {
+        if (searchInput.value.length > 0) {
+            searchClear.style.display = 'flex';
+        } else {
+            searchClear.style.display = 'none';
+        }
+    }
+
+    function clearSearch() {
+        searchInput.value = '';
+        searchInput.focus();
+        hideAutocomplete();
+        toggleClearButton();
+    }
+
+    function updateSelectedItem() {
+        const items = autocompleteList.querySelectorAll('.search-autocomplete__item');
+        items.forEach((item, index) => {
+            if (index === selectedIndex) {
+                item.classList.add('selected');
+                item.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+            } else {
+                item.classList.remove('selected');
+            }
+        });
+    }
+
+    let searchTimeout;
+    searchInput.addEventListener('input', (e) => {
+        const query = e.target.value;
+        clearTimeout(searchTimeout);
+        toggleClearButton();
+
+        if (!query || query.length < 2) {
+            hideAutocomplete();
+            return;
+        }
+
+        searchTimeout = setTimeout(() => {
+            currentResults = searchItems(query);
+            displayResults(currentResults, query);
+            selectedIndex = -1;
+        }, 300);
+    });
+
+    searchClear.addEventListener('click', (e) => {
+        e.preventDefault();
+        clearSearch();
+    });
+
+    searchInput.addEventListener('keydown', (e) => {
+        const items = autocompleteList.querySelectorAll('.search-autocomplete__item');
+
+        if (!autocompleteContainer.classList.contains('active') || items.length === 0) {
+            return;
+        }
+
+        switch (e.key) {
+            case 'ArrowDown':
+                e.preventDefault();
+                selectedIndex = Math.min(selectedIndex + 1, items.length - 1);
+                updateSelectedItem();
+                break;
+
+            case 'ArrowUp':
+                e.preventDefault();
+                selectedIndex = Math.max(selectedIndex - 1, -1);
+                updateSelectedItem();
+                break;
+
+            case 'Enter':
+                e.preventDefault();
+                if (selectedIndex >= 0 && selectedIndex < currentResults.length) {
+                    selectItem(currentResults[selectedIndex]);
+                } else if (currentResults.length > 0) {
+                    selectItem(currentResults[0]);
+                }
+                break;
+
+            case 'Escape':
+                e.preventDefault();
+                hideAutocomplete();
+                break;
+        }
+    });
+
+    searchInput.addEventListener('focus', () => {
+        toggleClearButton();
+        if (searchInput.value.length >= 2 && currentResults.length > 0) {
+            autocompleteContainer.classList.add('active');
+        }
+    });
+
+    searchInput.addEventListener('blur', () => {
+        setTimeout(() => {
+            if (searchInput.value.length === 0) {
+                searchClear.style.display = 'none';
+            }
+        }, 150);
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!searchForm.contains(e.target)) {
+            hideAutocomplete();
+        }
+    });
+
+    searchForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        if (selectedIndex >= 0 && selectedIndex < currentResults.length) {
+            selectItem(currentResults[selectedIndex]);
+        } else if (currentResults.length > 0) {
+            selectItem(currentResults[0]);
+        } else if (searchInput.value) {
+            console.log('Поиск по запросу:', searchInput.value);
+        }
+    });
+});
+
+
+// ---------------------mobile-search---------------------
+
+document.addEventListener('DOMContentLoaded', () => {
+    const searchBtn = document.querySelector('.search-btn');
+    const headerSearchWrapper = document.querySelector('.header__search_wrapper');
+    const searchClose = document.querySelector('.search-close');
+
+    searchBtn.addEventListener('click', () => {
+        headerSearchWrapper.classList.toggle('active');
+    });
+
+    searchClose.addEventListener('click', () => {
+        headerSearchWrapper.classList.remove('active');
+    });
+})

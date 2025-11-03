@@ -87,7 +87,9 @@
       width: 40px;
       text-transform: uppercase;
     }
-
+    .header__catalog{
+      display: block;
+    }
     &__content {
       position: absolute;
       left: 0;
