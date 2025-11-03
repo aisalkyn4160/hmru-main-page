@@ -758,3 +758,349 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+
+
+// ----------------------------------datetime-picker----------------------------------
+document.addEventListener('DOMContentLoaded', () => {
+    const datetimeInput = document.getElementById('datetime-input');
+    const datetimePicker = document.getElementById('datetime-picker');
+    const calendarDays = document.getElementById('calendar-days');
+    const pickerTitle = document.querySelector('.datetime-picker__title');
+    const prevBtn = document.querySelector('.datetime-picker__prev');
+    const nextBtn = document.querySelector('.datetime-picker__next');
+    const timeInput = document.getElementById('time-input');
+    const applyBtn = document.querySelector('.datetime-picker__apply');
+    const hiddenInput = document.getElementById('selected-datetime');
+    const closeDatetime = document.querySelector('.close-datetime');
+
+    closeDatetime.addEventListener('click', () => {
+        datetimePicker.style.display = 'none';
+    })
+
+    if (!datetimeInput || !datetimePicker) return;
+
+    let currentDate = new Date();
+    let selectedDate = null;
+
+    const monthNames = [
+        'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
+        'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'
+    ];
+
+    datetimeInput.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isVisible = datetimePicker.style.display === 'block';
+        if (isVisible) {
+            datetimePicker.style.display = 'none';
+        } else {
+            datetimePicker.style.display = 'block';
+            setTimeout(() => {
+                renderCalendar();
+            }, 10);
+        }
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!datetimePicker.contains(e.target) && e.target !== datetimeInput) {
+            datetimePicker.style.display = 'none';
+        }
+    });
+
+    prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentDate.setMonth(currentDate.getMonth() - 1);
+        renderCalendar();
+    });
+
+    nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentDate.setMonth(currentDate.getMonth() + 1);
+        renderCalendar();
+    });
+
+    applyBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (selectedDate) {
+            const day = String(selectedDate.getDate()).padStart(2, '0');
+            const month = String(selectedDate.getMonth() + 1).padStart(2, '0');
+            const year = selectedDate.getFullYear();
+            const time = timeInput.value;
+
+            const formattedDate = `${day}.${month}.${year} в ${time}`;
+            datetimeInput.value = formattedDate;
+            hiddenInput.value = `${year}-${month}-${day}T${time}`;
+
+            datetimePicker.style.display = 'none';
+        }
+    });
+
+    function renderCalendar() {
+        const year = currentDate.getFullYear();
+        const month = currentDate.getMonth();
+
+        pickerTitle.textContent = `${monthNames[month]}, ${year}`;
+
+        calendarDays.innerHTML = '';
+
+        const firstDay = new Date(year, month, 1);
+        const lastDay = new Date(year, month + 1, 0);
+        const prevLastDay = new Date(year, month, 0);
+
+        let firstDayIndex = firstDay.getDay();
+        firstDayIndex = firstDayIndex === 0 ? 6 : firstDayIndex - 1;
+
+        const daysInMonth = lastDay.getDate();
+       
+        const prevDaysInMonth = prevLastDay.getDate();
+
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+     
+        for (let i = firstDayIndex; i > 0; i--) {
+            const dayBtn = createDayButton(
+                prevDaysInMonth - i + 1,
+                new Date(year, month - 1, prevDaysInMonth - i + 1),
+                'other-month'
+            );
+            calendarDays.appendChild(dayBtn);
+        }
+
+        for (let day = 1; day <= daysInMonth; day++) {
+            const date = new Date(year, month, day);
+            let className = '';
+
+            const dayOfWeek = date.getDay();
+            if (dayOfWeek === 0 || dayOfWeek === 6) {
+                className = 'weekend';
+            }
+
+            if (date.getTime() === today.getTime()) {
+                className += ' today';
+            }
+
+       
+            if (selectedDate && date.getTime() === selectedDate.getTime()) {
+                className += ' selected';
+            }
+
+   
+            if (date < today) {
+                className += ' disabled';
+            }
+
+            const dayBtn = createDayButton(day, date, className.trim());
+            calendarDays.appendChild(dayBtn);
+        }
+
+        const totalCells = calendarDays.children.length;
+        const remainingCells = totalCells % 7 === 0 ? 0 : 7 - (totalCells % 7);
+
+        for (let day = 1; day <= remainingCells; day++) {
+            const dayBtn = createDayButton(
+                day,
+                new Date(year, month + 1, day),
+                'other-month'
+            );
+            calendarDays.appendChild(dayBtn);
+        }
+    }
+
+ 
+    function createDayButton(day, date, className) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = `datetime-picker__day ${className}`;
+        btn.textContent = String(day).padStart(2, '0');
+
+        if (!className.includes('disabled')) {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                selectDate(date);
+            });
+        }
+
+        return btn;
+    }
+
+
+    function selectDate(date) {
+        selectedDate = new Date(date);
+        selectedDate.setHours(0, 0, 0, 0);
+        renderCalendar();
+    }
+
+    const timePickerDropdown = document.getElementById('time-picker-dropdown');
+    const hoursColumn = document.getElementById('hours-column');
+    const minutesColumn = document.getElementById('minutes-column');
+
+    if (timeInput && timePickerDropdown) {
+        let selectedHour = 0;
+        let selectedMinute = 0;
+        let scrollTimeout;
+        let isScrolling = false;
+
+        const hoursScroll = hoursColumn.querySelector('.time-picker-scroll');
+        for (let i = 0; i < 24; i++) {
+            const item = document.createElement('div');
+            item.className = 'time-picker-item';
+            item.textContent = String(i).padStart(2, '0');
+            item.dataset.value = i;
+            if (i === 0) item.classList.add('selected');
+
+            item.addEventListener('click', () => {
+                selectedHour = i;
+                updateTimeDisplay();
+                highlightSelected(hoursScroll, item);
+                scrollToCenter(hoursScroll, item);
+            });
+
+            hoursScroll.appendChild(item);
+        }
+
+    
+        const minutesScroll = minutesColumn.querySelector('.time-picker-scroll');
+        for (let i = 0; i < 60; i++) {
+            const item = document.createElement('div');
+            item.className = 'time-picker-item';
+            item.textContent = String(i).padStart(2, '0');
+            item.dataset.value = i;
+            if (i === 0) item.classList.add('selected');
+
+            item.addEventListener('click', () => {
+                selectedMinute = i;
+                updateTimeDisplay();
+                highlightSelected(minutesScroll, item);
+                scrollToCenter(minutesScroll, item);
+            });
+
+            minutesScroll.appendChild(item);
+        }
+
+        timeInput.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isVisible = timePickerDropdown.style.display === 'block';
+            timePickerDropdown.style.display = isVisible ? 'none' : 'block';
+        });
+
+     
+        document.addEventListener('click', (e) => {
+            if (!timePickerDropdown.contains(e.target) && e.target !== timeInput) {
+                timePickerDropdown.style.display = 'none';
+            }
+        });
+
+ 
+        function updateTimeDisplay() {
+            const timeString = `${String(selectedHour).padStart(2, '0')}:${String(selectedMinute).padStart(2, '0')}`;
+            timeInput.value = timeString;
+            document.getElementById('time-value').value = timeString;
+        }
+
+    
+        function highlightSelected(container, selectedItem) {
+            container.querySelectorAll('.time-picker-item').forEach(item => {
+                item.classList.remove('selected');
+            });
+            selectedItem.classList.add('selected');
+        }
+
+
+        function scrollToCenter(container, item) {
+            isScrolling = true;
+
+   
+            const index = parseInt(item.dataset.value);
+            const itemHeight = 40;
+            const padding = 80;
+
+          
+            const scrollTo = (index * itemHeight);
+
+            container.scrollTo({
+                top: scrollTo,
+                behavior: 'smooth'
+            });
+
+        
+            setTimeout(() => {
+                isScrolling = false;
+            }, 300);
+        }
+
+        function handleScroll(container) {
+            if (isScrolling) return;
+
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                updateSelectedFromScroll(container);
+            }, 100);
+        }
+
+        function updateSelectedFromScroll(container) {
+            const scrollTop = container.scrollTop;
+            const itemHeight = 40;
+
+          
+            const centerIndex = Math.round(scrollTop / itemHeight);
+
+            const items = container.querySelectorAll('.time-picker-item');
+            const closestItem = items[centerIndex];
+
+            if (closestItem) {
+          
+                const targetScroll = centerIndex * itemHeight;
+                if (Math.abs(scrollTop - targetScroll) > 2) {
+                    isScrolling = true;
+                    container.scrollTo({
+                        top: targetScroll,
+                        behavior: 'smooth'
+                    });
+                    setTimeout(() => {
+                        isScrolling = false;
+                    }, 300);
+                }
+
+                highlightSelected(container, closestItem);
+
+           
+                const value = parseInt(closestItem.dataset.value);
+                if (container === hoursScroll) {
+                    selectedHour = value;
+                } else {
+                    selectedMinute = value;
+                }
+                updateTimeDisplay();
+            }
+        }
+
+
+        function handleWheel(e, container) {
+            e.preventDefault();
+
+        
+            const delta = e.deltaY / 3;
+
+            container.scrollTop += delta;
+        }
+
+    
+        hoursScroll.addEventListener('scroll', () => handleScroll(hoursScroll));
+        minutesScroll.addEventListener('scroll', () => handleScroll(minutesScroll));
+
+        hoursScroll.addEventListener('wheel', (e) => handleWheel(e, hoursScroll), { passive: false });
+        minutesScroll.addEventListener('wheel', (e) => handleWheel(e, minutesScroll), { passive: false });
+
+    
+        setTimeout(() => {
+            const firstHour = hoursScroll.querySelector('.time-picker-item');
+            const firstMinute = minutesScroll.querySelector('.time-picker-item');
+            if (firstHour) scrollToCenter(hoursScroll, firstHour);
+            if (firstMinute) scrollToCenter(minutesScroll, firstMinute);
+        }, 100);
+    }
+
+    renderCalendar();
+});
