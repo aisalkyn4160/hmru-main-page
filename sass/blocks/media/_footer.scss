@@ -70,8 +70,8 @@
   .footer__social_item,
   .footer__support_item{
     svg{
-      width: 32px;
-      height: 32px;
+      // width: 32px;
+      // height: 32px;
     }
   }
   .footer p, .footer a{
@@ -92,7 +92,7 @@
       font-size: 12px;
     }
     &__support {
-      max-width: 160px;
+      max-width: 195px;
       &_title {
         font-size: 12px;
       }
@@ -105,7 +105,7 @@
     }
     &__bottom {
       padding-top: 8px;
-      padding-bottom: 95px;
+      padding-bottom: 56px;
 
       &_content {
         flex-direction: column;
@@ -133,7 +133,7 @@
     display: block;;
     font-size: 22px;
     line-height: normal;
-    margin-bottom: 16px;
+    margin-bottom: 6px;
   }
   .footer__form_right {
     flex-direction: column;
@@ -145,8 +145,9 @@
   .footer__buttons_item {
     white-space: nowrap;
     height: 40px;
-    padding: 10px 8px;
+    padding: 10px 24px;
     font-size: 14px;
+    font-weight: 500;
   }
   .footer__form_privacy{
     top: 190px;

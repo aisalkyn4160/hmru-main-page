@@ -111,9 +111,26 @@
         background-image: url('/banner-mob.png');
         background-position: center;
         border-radius: 16px;
+
+        h2{
+            margin-top: 24px;
+        }
+        p{
+            font-size: 16px;
+            line-height: 125%;
+        }
+    }
+    .banner__item-btns{
+        width: 159px;
+        flex-direction: column;
+        gap: 8px;
+
+        a{
+            width: 100%;
+        }
     }
     .banner-swiper .swiper-pagination{
-        margin-bottom: 20px;
+        margin-bottom: 12px;
     }
     .banner-swiper .swiper-pagination-bullet{
         margin: 0 !important;

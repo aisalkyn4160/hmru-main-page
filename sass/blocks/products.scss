@@ -154,19 +154,42 @@
     .products__item{
         height: 348px;
         border-radius: 24px;
-        padding: 24px;
+        padding: 9px;
 
         &-top{
+            padding: 15px 15px 0;
             margin-bottom: 4px;
+
+            h4{
+                font-size: 18px;
+            }
         }
+      
         &-btn{
             width: 40px;
             height: 40px;
+            right: 16px;
+            bottom: 16px;
 
             svg{
-                width: 6px;
+                width: 7px;
                 height: 14px;
             }
+        }
+    }
+    .products__item-video .products__item-top{
+        padding: 24px 24px 0;
+    }
+    .products__item-img .products__item-top{
+        padding: 24px 24px 0;
+    }
+    .products__item-video .video-play-btn{
+        bottom: 16px;
+        right: 16px;
+       
+        svg{
+             width: 40px;
+            height: 40px;
         }
     }
 }
