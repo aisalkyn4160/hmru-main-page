@@ -647,7 +647,7 @@
     visibility: visible;
     pointer-events: all;
     max-height: 400px;
-    overflow-y: auto;
+   
   }
 
   &__list {
@@ -656,6 +656,24 @@
     flex-direction: column;
     gap: 8px;
     padding: 48px 0;
+    max-height: 400px;
+    overflow-y: auto;
+
+     &::-webkit-scrollbar {
+      width: 8px;
+      height: 6px;
+    }
+
+
+    &::-webkit-scrollbar-track {
+      background: #F7F7F8;
+    }
+
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #E1E1E5;
+
+    }
   }
 
   &__item {
@@ -723,21 +741,6 @@
   }
 
   // Стилизация скроллбара
-  &::-webkit-scrollbar {
-    width: 8px;
-  }
+   
 
-  &::-webkit-scrollbar-track {
-    background: #F7F7F8;
-    border-radius: 0 16px 16px 0;
   }
-
-  &::-webkit-scrollbar-thumb {
-    background: #E1E1E5;
-    border-radius: 3px;
-
-    &:hover {
-      background: #E1E1E5;
-    }
-  }
-}

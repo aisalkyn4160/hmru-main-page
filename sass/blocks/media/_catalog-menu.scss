@@ -1,10 +1,14 @@
 @media (max-width: 1020px) {
     .header__catalog_trigger{
         background-color: unset;
-        width: auto;
+        width: 100%;
         height: auto;
         display: block;
         padding: 10px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        
         
         span{
             font-size: 15px;
@@ -15,8 +19,8 @@
         }
     }
     .catalog-menu{
-        top: 0;
-        height: 100vh;
+        top: 64px;
+        height: calc(100vh - 64px);
         overflow: auto;
         position: fixed;
         padding-bottom: 56px;

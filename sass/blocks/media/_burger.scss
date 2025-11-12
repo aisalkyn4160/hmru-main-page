@@ -132,10 +132,9 @@
       }
     }
     &__menu {
-      padding: 8px 0 20px;
-      border-bottom: 1px solid #e7e7e7;
+      padding: 8px 0 16px;
       .main-menu{
-        margin-bottom: 16px;
+        // margin-bottom: 16px;
         li{
           a{
             font-size: 15px;
@@ -146,7 +145,7 @@
         }
       }
       .menu{
-        margin-bottom: 16px;
+        // margin-bottom: 16px;
         li{
           border-bottom: 1px solid #E1E1E5;
           padding: 10px 0;
@@ -201,7 +200,6 @@
     }
     &__contacts {
       width: 328px;
-      padding: 20px 0;
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
@@ -220,6 +218,7 @@
       }
       &_right {
         display: flex;
+        align-items: center;
         justify-content: space-between;
         gap: 10px;
       }
@@ -235,6 +234,12 @@
 
       border: 1px solid #e6e6e6;
       border-radius: 71px;
+    }
+    .header__feedback{
+      font-size: 14px;
+      padding: 12px;
+      font-weight: 500;
+      line-height: 95%;
     }
   }
 }

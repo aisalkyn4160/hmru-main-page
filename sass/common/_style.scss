@@ -1,6 +1,9 @@
 @use '../blocks';
 @use '../media';
 
+//Onest font
+@import url('https://fonts.googleapis.com/css2?family=Onest:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -75,7 +78,7 @@ html {
 }
 
 body {
-  font-family: "Onest", serif;
+  font-family: "Onest", sans-serif;
   overflow-x: hidden;
   color: #303239;
   cursor: default;
@@ -86,7 +89,10 @@ body {
   background-color: #FFF;
   line-height: normal;
   font-style: normal;
-
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-optical-sizing: auto;
 }
 
 
@@ -229,8 +235,8 @@ p{
         gap: 16px;
     }
     .swiper-pagination-bullet{
-        width: 7px;
-        height: 7px;
+        width: 7px !important;
+        height: 7px !important;
         border-radius: 50%;
         background-color: #fff;
         opacity: 1;
@@ -279,6 +285,7 @@ p{
     padding: 10px 20px;
     height: 40px;
     line-height: normal;
+    font-weight: 400;
   }
   .primary-btn{
     font-size: 14px;
