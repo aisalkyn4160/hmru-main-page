@@ -32,6 +32,7 @@
             font-size: 19px;
             font-weight: 600;
             margin-bottom: 8px;
+            color: #2C3336;
 
             span{
                 cursor: pointer;
@@ -58,10 +59,17 @@
         gap: 0;
         flex-direction: row !important;
         flex-wrap: wrap;
+       
 
         li{
             padding: 10px 0;
             border-bottom: 1px solid #E1E1E5;
+
+            a{
+                font-size: 15px;
+                font-weight: 600;
+            
+            }
         }
     }
      .catalog-menu__list .big-sale{

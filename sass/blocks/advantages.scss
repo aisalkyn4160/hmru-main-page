@@ -43,7 +43,6 @@
         }
 
         p{
-            font-weight: 300;
             margin-bottom: 16px;
         }
         &-bottom{
@@ -70,7 +69,7 @@
                 font-size: 18px;
 
                 &::placeholder{
-                    color: #758289;
+                    color: #70828A;
                     font-weight: 300;
                 }
             }
@@ -238,6 +237,10 @@
             font-size: 14px;
             height: 40px;
             padding: 10px 16px;
+
+            &::placeholder{
+                font-size: 14px;
+            }
         }
         button{
             width: calc(100% - 98px);

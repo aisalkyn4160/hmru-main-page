@@ -134,7 +134,7 @@
     &__menu {
       padding: 8px 0 16px;
       .main-menu{
-        // margin-bottom: 16px;
+        margin-bottom: 16px;
         li{
           a{
             font-size: 15px;
@@ -214,6 +214,7 @@
 
         .header__whatsapp{
           margin-left: auto;
+          margin-right: 0;
         }
       }
       &_right {
