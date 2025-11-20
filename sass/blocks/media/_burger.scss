@@ -99,7 +99,7 @@
       z-index: 150;
       padding: 8px 16px;
       overflow: auto;
-      padding-bottom: 85px;
+      padding-bottom: 56px;
     }
 
     &__popular {
@@ -241,6 +241,13 @@
       padding: 12px;
       font-weight: 500;
       line-height: 95%;
+    }
+    .has-sublist__arrow{
+      top: 9px;
+    }
+    .catalog-menu__link{
+      width: 100%;
+      justify-content: space-between;
     }
   }
 }
