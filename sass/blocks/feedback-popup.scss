@@ -2,7 +2,9 @@
 .service-popup,
 .subscribe-popup,
 .advantages-popup,
-.feedback-main-popup{
+.feedback-main-popup,
+.product-cheaper-popup,
+.test-popup {
     position: fixed;
     top: 0px;
     left: 0px;
@@ -15,16 +17,18 @@
     justify-content: center;
     opacity: 0;
     visibility: hidden;
+    // z-index: -1;
     padding: 0px 15px;
-    transition: 0.3s ease-out;
+    transition: 0.3s ease;
 
     &.active {
         opacity: 1;
         visibility: visible;
+        // z-index: 1000;
     }
 }
 
-#feedback-popup,#service-popup, #subscribe-popup, #advantages-popup, #feedback-main-popup{
+#feedback-popup,#service-popup, #subscribe-popup, #advantages-popup, #feedback-main-popup, #product-cheaper-popup, #test-popup {
     width: 460px;
     border-radius: 24px;
     padding: 40px;
@@ -45,6 +49,13 @@
         line-height: 100%;
         margin-bottom: 32px;
         margin-top: 0;
+    }
+    &_text{
+        margin-top: -12px;
+        font-size: 18px;
+        margin-bottom: 32px;
+        line-height: 130%;
+        color: #70828A;
     }
     input{
         width: 100%;

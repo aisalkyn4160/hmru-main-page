@@ -11,6 +11,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const productThumbsSwiper = new Swiper('.product__slider-thumbs', {
         spaceBetween: 16,
         slidesPerView: 7,
+        breakpoints: {
+            0: {
+                spaceBetween: 8,
+            },
+            768: {
+                spaceBetween: 16,
+            },
+        }
     })
 
 // второстепенный
@@ -22,7 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
         navigation: {
             nextEl: ".product__slider-nav--next",
             prevEl: ".product__slider-nav--prev",
-        }
+        },
+
     });
 
     const relatedProductSwiper = new Swiper('.product__related-slider', {
@@ -33,9 +42,19 @@ document.addEventListener('DOMContentLoaded', () => {
             nextEl: '.product__related-nav-btn--next',
             prevEl: '.product__related-nav-btn--prev',
         },
+        breakpoints:{
+            0:{
+                slidesPerView: 'auto',
+                spaceBetween: 8
+            },
+            768: {
+                slidesPerView: 3,
+                spaceBetween: 16,
+            }
+        }
     })
 })
-// Инициализация слайдера продукта
+// Видео-слайдер
 document.addEventListener('DOMContentLoaded', () => {
    const productVideosSlider = new Swiper('.product__videos-slider', {
         slidesPerView: 3,
@@ -52,15 +71,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
             },
             768: {
-                slidesPerView: 'auto',
-                spaceBetween: 16,
-            },
-            1440: {
                 slidesPerView: 3,
+                spaceBetween: 16,
             },
         }
         
     })
+
+ 
+
 
     // Переключение видимости блока характеристик
     const detailsContent = document.querySelector('.product__details-content');
@@ -100,38 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(checkButtonVisibility, 100);
     }
 
-    // Навигация для популярных товаров
-    const popularItems = document.querySelector('.product__popular-items');
-    const popularPrevBtn = document.querySelector('.product__popular-nav-btn--prev');
-    const popularNextBtn = document.querySelector('.product__popular-nav-btn--next');
 
-    if (popularItems && popularPrevBtn && popularNextBtn) {
-        const scrollAmount = 309; // 293px ширина карточки + 16px gap
-
-        popularNextBtn.addEventListener('click', () => {
-            popularItems.scrollBy({
-                left: scrollAmount,
-                behavior: 'smooth'
-            });
-        });
-
-        popularPrevBtn.addEventListener('click', () => {
-            popularItems.scrollBy({
-                left: -scrollAmount,
-                behavior: 'smooth'
-            });
-        });
-
-        // Обновление состояния кнопок при прокрутке
-        const updateNavButtons = () => {
-            const { scrollLeft, scrollWidth, clientWidth } = popularItems;
-            popularPrevBtn.style.opacity = scrollLeft > 0 ? '1' : '0.5';
-            popularNextBtn.style.opacity = scrollLeft < scrollWidth - clientWidth - 10 ? '1' : '0.5';
-        };
-
-        popularItems.addEventListener('scroll', updateNavButtons);
-        updateNavButtons();
-    }
 
     // Выпадающий список доступности товара
     const availabilityToggle = document.querySelector('.product__availability-toggle');
@@ -187,53 +175,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // Устанавливаем первый элемент как выбранный по умолчанию
         if (availabilityItems.length > 0) {
             availabilityItems[0].setAttribute('aria-selected', 'true');
-        }
-    }
-
-    // Модальное окно "Нашли дешевле?"
-    const cheaperLink = document.querySelector('.product__cheaper-link');
-    const cheaperPopup = document.querySelector('.product-cheaper-popup');
-    const cheaperPopupClose = document.querySelector('.product-cheaper-popup__close');
-    const cheaperPopupOverlay = document.querySelector('.product-cheaper-popup__overlay');
-    const cheaperPopupForm = document.querySelector('.product-cheaper-popup__form');
-
-    if (cheaperLink && cheaperPopup) {
-        // Открытие модального окна
-        cheaperLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            cheaperPopup.classList.add('product-cheaper-popup--active');
-            document.body.style.overflow = 'hidden';
-        });
-
-        // Закрытие модального окна
-        const closePopup = () => {
-            cheaperPopup.classList.remove('product-cheaper-popup--active');
-            document.body.style.overflow = '';
-        };
-
-        if (cheaperPopupClose) {
-            cheaperPopupClose.addEventListener('click', closePopup);
-        }
-
-        if (cheaperPopupOverlay) {
-            cheaperPopupOverlay.addEventListener('click', closePopup);
-        }
-
-        // Закрытие по клавише ESC
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && cheaperPopup.classList.contains('product-cheaper-popup--active')) {
-                closePopup();
-            }
-        });
-
-        // Обработка отправки формы
-        if (cheaperPopupForm) {
-            cheaperPopupForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                // Здесь можно добавить логику отправки формы
-                console.log('Форма отправлена');
-                closePopup();
-            });
         }
     }
 
@@ -446,3 +387,189 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+
+   document.addEventListener('DOMContentLoaded', () => {    
+        const productPopularSlider = new Swiper('.product__popular-swiper', {
+            slidesPerView: 'auto',
+            spaceBetween: 16,
+            loop: true,
+            navigation: {
+                nextEl: '.product__popular-next',
+                prevEl: '.product__popular-prev',
+            },
+            breakpoints: {
+                0: {
+                    spaceBetween: 8,
+                },
+                768: {
+                    spaceBetween: 16,
+                }
+            }
+        })
+    })
+    document.addEventListener('DOMContentLoaded', () => {
+        const productAddToCompare = document.querySelectorAll('.product__add-to-compare');
+        productAddToCompare.forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('active');
+            })
+        })
+
+        const productAddToFavorite = document.querySelectorAll('.product__add-to-favorites');
+        productAddToFavorite.forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('active');
+            })
+        })
+    })
+    document.addEventListener('DOMContentLoaded', () => {
+        const compareBtns = document.querySelectorAll('.product__popular-compare');
+        const favoriteBtns = document.querySelectorAll('.product__popular-favorite');
+
+        compareBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.classList.toggle('active');
+            })
+        })
+
+        favoriteBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.classList.toggle('active');
+            })
+        })
+
+    })
+
+
+document.addEventListener('DOMContentLoaded', function(){
+    const productCheaperPopup = document.querySelector('.product-cheaper-popup')
+    const productCheaperShowBtns = document.querySelectorAll('.show-product-cheaper-popup')
+    const productCheaperCloseFormBtn = document.querySelector('.product-cheaper-popup .close-popup')
+    const productCheaperForm = document.querySelector('#product-cheaper-popup form')
+    const productCheaperSuccess = document.querySelector('.product-cheaper-popup .feedback-success')
+    const productCheaperSuccessBtn = document.querySelector('.product-cheaper-popup .success-btn')
+
+    productCheaperShowBtns.forEach(item => {
+        item.addEventListener('click', () => {
+            productCheaperPopup.classList.add('active')
+            
+            document.body.classList.add('no-scroll')
+        })
+    })
+
+    productCheaperCloseFormBtn.addEventListener('click', () => {
+
+        console.log('click')
+        productCheaperForm.reset()
+        productCheaperPopup.classList.remove('active')
+        document.body.classList.remove('no-scroll')
+        setTimeout(() => {
+            productCheaperForm.style.display = 'block'
+            productCheaperSuccess.style.display = 'none'
+        })
+    })
+    productCheaperForm.addEventListener('submit', (event) => {
+        event.preventDefault() 
+        
+        productCheaperForm.style.display = 'none'
+        productCheaperSuccess.style.display = 'block'
+    })
+
+    productCheaperSuccessBtn.addEventListener('click', () => {
+        productCheaperForm.reset() 
+        setTimeout(() => {
+            productCheaperPopup.classList.remove('active')
+            document.body.classList.remove('no-scroll')
+            setTimeout(() => {
+                productCheaperForm.style.display = 'block'
+                productCheaperSuccess.style.display = 'none'
+            }, 300) 
+        }, 0)
+    })
+
+    document.addEventListener('click', (event) => {
+        if (event.target === popup) {
+            productCheaperForm.reset()
+            productCheaperPopup.classList.remove('active')
+            document.body.classList.remove('no-scroll')
+            setTimeout(() => {
+                productCheaperForm.style.display = 'flex'
+                productCheaperSuccess.style.display = 'none'
+            }, 300) 
+        }
+    }); 
+
+})
+
+// ----------------------------test-popup----------------------------
+document.addEventListener('DOMContentLoaded', function(){
+    const testPopup = document.querySelector('.test-popup')
+    const testPopupShowBtns = document.querySelectorAll('.show-test-popup')
+    const testCloseFormBtn = document.querySelector('.test-popup .close-popup')
+    const testForm = document.querySelector('#test-popup form')
+    const testSuccess = document.querySelector('.test-popup .feedback-success')
+    const testSuccessBtn = document.querySelector('.test-popup .success-btn')
+    
+    // Обработчики для открытия test-popup
+    testPopupShowBtns.forEach(item => {
+        item.addEventListener('click', () => {
+            testPopup.classList.add('active')
+            document.body.classList.add('no-scroll')
+        })
+    })
+    
+    // Обработчик закрытия по крестику
+    testCloseFormBtn.addEventListener('click', () => {
+        // Сначала сбрасываем форму
+        testForm.reset()
+        // Затем скрываем popup
+        testPopup.classList.remove('active')
+        document.body.classList.remove('no-scroll')
+        // И только после закрытия возвращаем исходное состояние формы
+        setTimeout(() => {
+            testForm.style.display = 'block'
+            testSuccess.style.display = 'none'
+        }, 300) // Задержка, соответствующая времени анимации закрытия попапа
+    })
+    
+    // Обработчик отправки формы тестирования
+    testForm.addEventListener('submit', (event) => {
+        event.preventDefault() // Предотвращаем стандартную отправку формы
+        
+        // Скрываем форму и показываем блок успеха
+        testForm.style.display = 'none'
+        testSuccess.style.display = 'block'
+    })
+    
+    // Обработчик кнопки "Хорошо" в блоке успеха тестирования
+    testSuccessBtn.addEventListener('click', () => {
+        // Сначала сбрасываем состояние для следующего использования
+        testForm.reset() // Очищаем форму
+        setTimeout(() => {
+            // Затем скрываем popup
+            testPopup.classList.remove('active')
+            document.body.classList.remove('no-scroll')
+            // И только после этого возвращаем исходное состояние формы
+            setTimeout(() => {
+                testForm.style.display = 'block'
+                testSuccess.style.display = 'none'
+            }, 300) // Задержка, соответствующая времени анимации закрытия попапа
+        }, 0)
+    })
+    
+    // Закрытие по клику вне формы
+    document.addEventListener('click', (event) => {
+        if (event.target === testPopup) {
+            // Сначала сбрасываем форму
+            testForm.reset()
+            // Затем скрываем popup
+            testPopup.classList.remove('active')
+            document.body.classList.remove('no-scroll')
+            // И только после закрытия возвращаем исходное состояние формы
+            setTimeout(() => {
+                testForm.style.display = 'block'
+                testSuccess.style.display = 'none'
+            }, 300) // Задержка, соответствующая времени анимации закрытия попапа
+        }
+    });
+});
