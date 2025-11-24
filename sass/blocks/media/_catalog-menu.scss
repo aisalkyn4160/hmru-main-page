@@ -63,8 +63,11 @@
 
         li{
             padding: 10px  20px 10px 0;
-            border-bottom: 1px solid #E1E1E5;
-
+            border-top: 1px solid #E1E1E5;
+            &:first-child,
+            &:last-child{
+                border-top: none;
+            }
             a{
                 font-size: 15px;
                 font-weight: 600;
@@ -76,14 +79,14 @@
         margin-right: 8px;
      }
     .catalog-menu__list .big-sale, .catalog-menu__list .discount {
-        width: calc(50% - 8px);
-        height: unset;
-        aspect-ratio: 2/1;
-        min-height: 100px;
+        width: calc(50% - 4px);
+        height: 80px;
         border: none;
+        padding: 0;
         
         a{
             font-size: 16px;
+            padding: 8px 16px;
         }
     }
     .has-sublist{
