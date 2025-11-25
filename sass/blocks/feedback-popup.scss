@@ -482,3 +482,115 @@
         }
     }
 }
+
+
+@media (max-width: 576px) {
+    #feedback-popup, #service-popup, #subscribe-popup, #advantages-popup, #feedback-main-popup, #product-cheaper-popup, #test-popup,
+    .datetime-picker{
+        border-radius: 16px;
+        padding: 16px;
+        width: 328px;
+    }
+
+    .feedback-popup_title{
+        font-size: 22px;
+        margin-bottom: 16px;
+    }
+    .feedback-popup .close-popup{
+        top: 8px;
+        right: 8px;
+
+        svg{
+            width: 14px;
+            height: 14px;
+        }
+    }
+    .feedback-popup input{
+        height: 40px;
+        padding: 10px 16px;
+        margin-bottom: 8px;
+        font-size: 14px;
+        line-height: 140%;
+    }
+    .feedback-popup_input-time .calendar-icon{
+        top: 10px;
+        transform: unset;
+    }
+    .feedback-popup_input-time{
+        margin-bottom: 0;
+    }
+    .feedback-popup .btn{
+        margin-top: 8px;
+        height: 40px;
+        padding: 10px 16px;
+    }
+
+    .feedback-popup_privacy{
+        font-size: 13px;
+    }
+    .feedback-popup_privacy label{
+        top: 0;
+        transform: unset;
+    }
+
+    .datetime-picker .close-datetime{
+        top: 8px;
+        right: 8px;
+
+        svg{
+            width: 14px;
+            height: 14px;
+        }
+    }
+    .datetime-picker__header{
+        margin-bottom: 16px;
+    }
+    .datetime-picker__nav{
+        width: 40px;
+        height: 40px;
+        padding: 12px 16px;
+    }
+    .datetime-picker__title{
+        font-size: 14px;
+    }
+    .datetime-picker__day{
+        font-size: 14px;
+    }
+    .datetime-picker__weekday{
+        font-size: 14px;
+        min-height: 40px;
+    }
+    .datetime-picker__calendar{
+        border-radius: 8px;
+        padding: 8px;
+        margin-bottom: 16px;
+    }
+    .datetime-picker__time label{
+        font-size: 14px;
+    }
+    .datetime-picker__time input[type=text], .datetime-picker__time input[type=time]{
+        height: 40px;
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+    .datetime-picker__time .time-input-wrapper{
+        gap: 8px;
+
+        .btn{
+            width: 144px !important;
+        }
+    }
+    .feedback-popup .feedback-success{
+        padding: 16px;
+    }
+
+    .feedback-popup .feedback-success p{
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
+    .feedback-popup .feedback-success .success-btn{
+        height: 40px;
+        padding: 10px 32px;
+        font-size: 14px;
+    }
+}

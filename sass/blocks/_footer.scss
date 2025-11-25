@@ -131,6 +131,9 @@
   }
 
   &__sites {
+    .footer__title{
+      font-weight: 300;
+    }
     &_wrapper {
       display: flex;
       flex-direction: column;
