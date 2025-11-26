@@ -53,6 +53,9 @@
         margin-top: 0;
         margin-bottom: 16px;
     }
+    .product__header{
+        gap: 8px;
+    }
     .product__title--tablet{
         font-size: 20px;
         margin-bottom: 16px;
@@ -88,7 +91,12 @@
         gap: 16px;
     }
     .product__code span{
+        width: 111px;
         font-size: 13px;
+
+        input{
+            font-size: 13px;
+        }
     }
     .product__cheaper-link span{
         font-size: 13px;

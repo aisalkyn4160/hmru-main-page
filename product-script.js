@@ -573,3 +573,45 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     });
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const copyBtn = document.querySelector(".copy-btn");
+    const textToCopy = document.getElementById("text-to-copy");
+    const notification = document.getElementById("copy-notification");
+
+    function copyText() {
+        // Выделяем текст
+        // textToCopy.select();
+        textToCopy.setSelectionRange(0, 99999);
+        
+        // Пытаемся скопировать
+        try {
+            const successful = document.execCommand('copy');
+            if (successful) {
+                // Показываем уведомление
+                notification.style.display = "block";
+                setTimeout(() => {
+                    notification.style.display = "none";
+                }, 2000);
+            }
+        } catch (err) {
+            console.log('Ошибка при копировании:', err);
+        }
+    }
+
+    // Настройка
+    if (textToCopy) {
+        textToCopy.style.width = textToCopy.value.length  + 'ch';
+    }
+
+    if (copyBtn) {
+        copyBtn.addEventListener('click', copyText);
+        copyBtn.style.cursor = 'pointer';
+    }
+    
+    // Скрываем уведомление изначально
+    if (notification) {
+        notification.style.display = 'none';
+    }
+});

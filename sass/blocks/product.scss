@@ -1,5 +1,5 @@
 .product {
-    margin: 32px 0 80px;
+    margin: 0 0 80px;
 
     &__wrapper {
         // display: grid;
@@ -12,7 +12,7 @@
     }
 
     &__image {
-        width: calc(50% - 40px);
+        width: calc(50% - 20px);
         overflow: hidden;
         display: flex;
         flex-direction: column;
@@ -119,6 +119,7 @@
         z-index: 10;
         box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.06);
         transition: opacity 0.2s ease;
+        color: #2C3336;
 
         &:hover {
             opacity: 0.7;
@@ -203,7 +204,7 @@
     }
 
     &__info {
-        width: calc(50% - 40px);
+        width: calc(50% - 20px);
         display: flex;
         flex-direction: column;
         gap: 24px;
@@ -220,10 +221,23 @@
     &__code {
         display: flex;
         align-items: center;
-        gap: 8px;
-        padding: 7px 12px;
+        gap: 7px;
+        padding: 7px 8px;
         border: 1px dashed #E1E1E5;
         border-radius: 8px;
+        position: relative;
+        #copy-notification{
+            position: absolute;
+            top: -32px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #0071E3;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            z-index: 10;
+        }
 
         img,
         svg {
@@ -237,6 +251,27 @@
             font-weight: 400;
             color: #70828A;
             line-height: normal;
+
+            input{
+                width: max-content;
+                border: none;
+                padding: 0;
+                background: transparent;
+                outline: none;
+                font-size: 16px;
+                font-weight: 400;
+                color: #70828A;
+                line-height: normal;
+            }
+            #text-to-copy::selection {
+                background-color: transparent;
+                color: inherit;
+            }
+
+            #text-to-copy::-moz-selection {
+                background-color: transparent;
+                color: inherit;
+            }
         }
     }
 
@@ -315,6 +350,7 @@
         width: 28px;
         height: 28px;
         transition: transform 0.2s ease;
+        color: #2C3336;
     }
 
     &__availability[aria-expanded="true"] &__availability-arrow {
@@ -413,7 +449,6 @@
         padding: 24px;
         background: white;
         border-radius: 16px;
-        border: 1px solid #E1E1E5;
     }
 
     &__price-top {
@@ -496,6 +531,10 @@
     &__add-to-compare {
         background: #F7F7F8;
         color: #2C3336;
+
+        &:hover {
+            color: #0071E3;
+        }
 
         &.active {
             svg {
@@ -683,6 +722,7 @@
         justify-content: center;
         transition: opacity 0.2s ease;
         margin-left: auto;
+        color: #2C3336;
 
         &:hover {
             opacity: 0.7;
@@ -742,7 +782,7 @@
 
     &__related-title {
         font-size: 32px;
-        font-weight: 600;
+        font-weight: 500;
         color: #2C3336;
         margin: 0;
     }
@@ -1035,6 +1075,7 @@
             cursor: pointer;
             transition: all .2s ease;
             border: none;
+            color: #2C3336;
         }
 
         .product__videos-next {
@@ -1304,6 +1345,7 @@
         box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.06);
         transition: opacity 0.2s ease;
         padding: 0;
+        color: #2C3336;
 
         &:hover {
             opacity: 0.7;
@@ -1376,7 +1418,7 @@
 
     &__popular-price {
         font-size: 24px;
-        font-weight: 500;
+        font-weight: 600;
         line-height: 1.275em;
         color: #2C3336;
 
@@ -1404,7 +1446,11 @@
         cursor: pointer;
         transition: all 0.2s ease;
         padding: 0;
-
+        &:hover{
+            svg {
+                color: #0071E3;
+            }
+        }
         &.active {
             svg {
                 color: #0071E3;

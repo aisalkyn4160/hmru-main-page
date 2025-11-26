@@ -49,6 +49,7 @@
         line-height: 100%;
         margin-bottom: 32px;
         margin-top: 0;
+        color: #2C3336;
     }
     &_text{
         margin-top: -12px;
@@ -493,8 +494,8 @@
     }
 
     .feedback-popup_title{
-        font-size: 22px;
-        margin-bottom: 16px;
+        font-size: 20px;
+        margin-bottom: 8px;
     }
     .feedback-popup .close-popup{
         top: 8px;
@@ -504,6 +505,11 @@
             width: 14px;
             height: 14px;
         }
+    }
+    .feedback-popup_text{
+        font-size: 14px;
+        margin-bottom: 16px;
+        margin-top: 0;
     }
     .feedback-popup input{
         height: 40px;

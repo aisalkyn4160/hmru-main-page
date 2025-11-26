@@ -31,9 +31,9 @@
                   <div class="product__slide-image">
                     <img src="/product-slider.png" alt="Горизонтальная упаковочная машина DXDZ-250XD">
                   </div>
-                  <div class="product__slide-video">
+                  <a href="#product-videos" class="product__slide-video" >
                       <div class="product__slide-video-play">
-                        <svg class="product__slide-video-play-icon" data-fancybox="video" data-src="/public/videos/1477023_Business_3840x2160.mp4" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="product__slide-video-play-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M27.0385 15.2724C28.3615 16.0442 28.3615 17.9558 27.0385 18.7276L9.00774 29.2455C7.67443 30.0233 6 29.0615 6 27.5179L6 6.48207C6 4.93849 7.67443 3.97675 9.00774 4.75452L27.0385 15.2724Z" fill="white"/>
                         </svg>
                       </div>
@@ -43,7 +43,7 @@
                         <source src="/public/videos/1477023_Business_3840x2160.mp4" type="video/mp4">
                         Ваш браузер не поддерживает встроенные видео :(
                       </video>
-                  </div>
+                  </a>
                 </div>
                 <div class="swiper-slide">
                   <div class="product__slide-image">
@@ -191,7 +191,8 @@
           <div class="product__info">
             <div class="product__header">
               <div class="product__code">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <span id="copy-notification" >Скопировано!</span>
+                <svg  width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M20 2H10C8.9 2 8 2.9 8 4V14C8 15.1 8.9 16 10 16H20C21.1 16 22 15.1 22 14V4C22 2.9 21.1 2 20 2ZM20 14H10V4H20V14Z"
                     fill="#2C3336" />
@@ -200,7 +201,7 @@
                   <path d="M12 6H18V8H12V6Z" fill="#2C3336" />
                   <path d="M12 10H18V12H12V10Z" fill="#2C3336" />
                 </svg>
-                <span>Код товара: 00-00002885</span>
+                <span>Код товара: <input class="copy-btn" type="text" id="text-to-copy" value="00-00002885"  readonly ></span>     
               </div>
               <div class="product__cheaper-link show-product-cheaper-popup">
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -327,7 +328,7 @@
                     </svg>
                     <span>Скачать КП</span>
                   </a>
-                  <a href="#" class="product__action-link">
+                  <a href="#spares" class="product__action-link">
                     <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <rect width="40" height="40" rx="16" fill="#E2E3E9" />
                       <path
@@ -718,7 +719,7 @@
                   </svg>
               </button>
         </div>
-        <div class="product__spares">
+        <div class="product__spares" id="spares">
           <h3 class="product__spares-title">Запчасти для этой модели</h3>
           <label class="product__spares-search">
 
@@ -1243,7 +1244,7 @@
       </form>
       <div class="feedback-success" style="display: none;">
         <div class="feedback-popup_title">Спасибо!</div>
-        <p>Ваша заявка принята. Наш менеджер свяжется с вами в указанное время.</p>
+        <p>Ваша заявка принята. Наш менеджер свяжется с вами в ближайшее время.</p>
         <button class="btn success-btn">Хорошо</button>
       </div>
     </div>
