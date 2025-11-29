@@ -723,7 +723,7 @@
                   </svg>
               </button>
         </div>
-        <div class="product__spares" id="spares">
+        <div class="product__spares">
           <h3 class="product__spares-title">Запчасти для этой модели</h3>
           <label class="product__spares-search">
 
@@ -741,7 +741,7 @@
             </button>
           </label>
           <div class="product__spares-table" role="table" aria-label="Запчасти для этой модели">
-            <div class="product__spares-row product__spares-row--head" role="row">
+            <div class="product__spares-row--head" role="row">
               <div class="product__spares-col" role="columnheader"><span
                   class="visually-hidden">Фото</span></div>
               <div class="product__spares-col product__spares-col--code" role="columnheader">Код товара</div>
@@ -757,12 +757,14 @@
                    <img src="/spare-part-1.png" alt="GE-4145GK" />
                  </div>
               </div>
-              <div class="product__spares-col product__spares-col--code" role="cell">GE-4145GK</div>
-              <div class="product__spares-col product__spares-col--name" role="cell">Теплообменник AlfaLaval CBH16-9A
+              <div class="product__spares-col product__spares-col--code" role="cell" data-label="Код товара">GE-4145GK</div>
+              <div class="product__spares-col product__spares-col--name" role="cell" data-label="Наименование">Теплообменник AlfaLaval CBH16-9A
                 (Z31, Z31)</div>
-              <div class="product__spares-col product__spares-col--price" role="cell">1 942 449 ₽/шт.</div>
-              <div class="product__spares-col product__spares-col--qty" role="cell">1 шт.</div>
-              <div class="product__spares-col product__spares-col--total" role="cell">1 942 449 ₽</div>
+              <div class="product__spares-col product__spares-col--price-qty" role="cell">
+                <div class="product__spares-price-item" data-label="Цена / ед.">1 942 449 ₽/шт.</div>
+                <div class="product__spares-qty-item" data-label="Кол-во">1 шт.</div>
+              </div>
+              <div class="product__spares-col product__spares-col--total" role="cell" data-label="Всего">1 942 449 ₽</div>
               <div class="product__spares-col product__spares-col--action" role="cell">
                 <button class="product__spares-cart" type="button" aria-label="Добавить в корзину">
                   <svg width="24" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -785,12 +787,14 @@
                    <img src="/spare-part-2.png" alt="GE-4145GK" />
                  </div>
               </div>
-              <div class="product__spares-col product__spares-col--code" role="cell">GE-4146GK</div>
-              <div class="product__spares-col product__spares-col--name" role="cell">Комплект ножей для упаковочной
+              <div class="product__spares-col product__spares-col--code" role="cell" data-label="Код товара">GE-4146GK</div>
+              <div class="product__spares-col product__spares-col--name" role="cell" data-label="Наименование">Комплект ножей для упаковочной
                 машины DXDZ-250XD</div>
-              <div class="product__spares-col product__spares-col--price" role="cell">38 900 ₽/шт.</div>
-              <div class="product__spares-col product__spares-col--qty" role="cell">1 шт.</div>
-              <div class="product__spares-col product__spares-col--total" role="cell">38 900 ₽</div>
+              <div class="product__spares-col product__spares-col--price-qty" role="cell">
+                <div class="product__spares-price-item" data-label="Цена / ед.">38 900 ₽/шт.</div>
+                <div class="product__spares-qty-item" data-label="Кол-во">1 шт.</div>
+              </div>
+              <div class="product__spares-col product__spares-col--total" role="cell" data-label="Всего">38 900 ₽</div>
               <div class="product__spares-col product__spares-col--action" role="cell">
                 <button class="product__spares-cart" type="button" aria-label="Добавить в корзину">
                   <svg width="24" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -813,12 +817,14 @@
                    <img src="/spare-part-1.png" alt="GE-4145GK" />
                  </div>
               </div>
-              <div class="product__spares-col product__spares-col--code" role="cell">GE-4150GK</div>
-              <div class="product__spares-col product__spares-col--name" role="cell">Система подачи пленки для
+              <div class="product__spares-col product__spares-col--code" role="cell" data-label="Код товара">GE-4150GK</div>
+              <div class="product__spares-col product__spares-col--name" role="cell" data-label="Наименование">Система подачи пленки для
                 DXDZ-250XD</div>
-              <div class="product__spares-col product__spares-col--price" role="cell">По запросу</div>
-              <div class="product__spares-col product__spares-col--qty" role="cell">1 шт.</div>
-              <div class="product__spares-col product__spares-col--total product__spares-col--total-muted" role="cell">
+              <div class="product__spares-col product__spares-col--price-qty" role="cell">
+                <div class="product__spares-price-item" data-label="Цена / ед.">По запросу</div>
+                <div class="product__spares-qty-item" data-label="Кол-во">1 шт.</div>
+              </div>
+              <div class="product__spares-col product__spares-col--total product__spares-col--total-muted" role="cell" data-label="Всего">
                 По запросу</div>
               <div class="product__spares-col product__spares-col--action" role="cell">
                 <button class="product__spares-cart" type="button" aria-label="Добавить в корзину">
@@ -842,12 +848,14 @@
                    <img src="/spare-part-2.png" alt="GE-4145GK" />
                  </div>
               </div>
-              <div class="product__spares-col product__spares-col--code" role="cell">GE-4151GK</div>
-              <div class="product__spares-col product__spares-col--name" role="cell">Набор датчиков температуры и
+              <div class="product__spares-col product__spares-col--code" role="cell" data-label="Код товара">GE-4151GK</div>
+              <div class="product__spares-col product__spares-col--name" role="cell" data-label="Наименование">Набор датчиков температуры и
                 давления</div>
-              <div class="product__spares-col product__spares-col--price" role="cell">128 600 ₽/шт.</div>
-              <div class="product__spares-col product__spares-col--qty" role="cell">1 шт.</div>
-              <div class="product__spares-col product__spares-col--total" role="cell">128 600 ₽</div>
+              <div class="product__spares-col product__spares-col--price-qty" role="cell">
+                <div class="product__spares-price-item" data-label="Цена / ед.">128 600 ₽/шт.</div>
+                <div class="product__spares-qty-item" data-label="Кол-во">1 шт.</div>
+              </div>
+              <div class="product__spares-col product__spares-col--total" role="cell" data-label="Всего">128 600 ₽</div>
               <div class="product__spares-col product__spares-col--action" role="cell">
                 <button class="product__spares-cart" type="button" aria-label="Добавить в корзину">
                   <svg width="24" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -870,12 +878,14 @@
                    <img src="/spare-part-1.png" alt="GE-4145GK" />
                  </div>
               </div>
-              <div class="product__spares-col product__spares-col--code" role="cell">GE-4152GK</div>
-              <div class="product__spares-col product__spares-col--name" role="cell">Модуль конвейерной подачи с
+              <div class="product__spares-col product__spares-col--code" role="cell" data-label="Код товара">GE-4152GK</div>
+              <div class="product__spares-col product__spares-col--name" role="cell" data-label="Наименование">Модуль конвейерной подачи с
                 регулировкой скорости</div>
-              <div class="product__spares-col product__spares-col--price" role="cell">512 000 ₽/шт.</div>
-              <div class="product__spares-col product__spares-col--qty" role="cell">1 шт.</div>
-              <div class="product__spares-col product__spares-col--total" role="cell">512 000 ₽</div>
+              <div class="product__spares-col product__spares-col--price-qty" role="cell">
+                <div class="product__spares-price-item" data-label="Цена / ед.">512 000 ₽/шт.</div>
+                <div class="product__spares-qty-item" data-label="Кол-во">1 шт.</div>
+              </div>
+              <div class="product__spares-col product__spares-col--total" role="cell" data-label="Всего">512 000 ₽</div>
               <div class="product__spares-col product__spares-col--action" role="cell">
                 <button class="product__spares-cart" type="button" aria-label="Добавить в корзину">
                   <svg width="24" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -892,7 +902,7 @@
                 </button>
               </div>
             </div>
-          </div>
+          </div>        
         </div>
         <div class="product__popular">
           <div class="product__popular-header">

@@ -34,6 +34,149 @@
     }
 }
 @media (max-width: 1020px) {
+    .product__spares-row--head {
+        display: none !important;
+    }
+    .product__spares-row {
+        display: grid;
+        grid-template-columns: 60px 1fr;
+        grid-template-rows: auto auto auto auto;
+        gap: 8px;
+        padding: 8px !important;
+        background: #F7F7F8;
+        position: relative;
+        border: none;
+        
+        &--alt {
+            background: #FFF;
+        }
+    }
+    .product__spares-col {
+        padding: 0;
+        align-items: flex-start;
+        
+        &:first-child {
+            grid-row: 1 / 5;
+            padding: 0;
+        }
+    }
+    .product__spares-col--image {
+        width: 60px;
+        height: 60px;
+        border-radius: 8px;
+    }
+  
+
+    .product__spares-col--code {
+        grid-column: 2;
+        grid-row: 1;
+        display: flex;
+        flex-direction: column;
+        font-size: 14px;
+        line-height: 18px;
+        color: #2C3336;
+        font-weight: 500;
+        
+        &::before {
+            content: attr(data-label);
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 15px;
+        }
+    
+      
+    }
+    .product__spares-col--name {
+        grid-column: 2;
+        grid-row: 2;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 8px;
+        font-size: 14px;
+        line-height: 18px;
+        color: #70828A;
+        font-weight: 400;
+        
+        &::before {
+            content: attr(data-label);
+             font-size: 12px;
+            font-weight: 500;
+            line-height: 15px;
+            color: #2C3336;
+        }
+
+        
+    }
+    .product__spares-col--price-qty {
+        grid-column: 2;
+        grid-row: 3;
+        display: flex;
+    }
+    .product__spares-price-item,
+    .product__spares-qty-item {
+        display: flex;
+        flex-direction: column;
+        font-size: 14px;
+        line-height: 18px;
+        color: #70828A;
+        font-weight: 400;
+        padding-left: 0;
+        width: 106px;
+        letter-spacing: -0.01em;
+
+        
+        &::before {
+            content: attr(data-label);
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 14px;
+            color: #2C3336
+        }
+        
+        
+    }
+    .product__spares-col--total {
+        grid-column: 2;
+        grid-row: 4;
+        display: flex !important;
+        flex-direction: column;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 130%;
+        color: #2C3336;
+        
+        &::before {
+            content: attr(data-label);
+            font-size: 12px;
+            line-height: 15px;
+            color: #2C3336;
+        }
+        
+       
+    }
+    .product__spares-col--total-muted {
+        font-weight: 400;
+        color: #70828A;
+    }
+    .product__spares-col--action {
+        position: absolute;
+        bottom: 16px;
+        right: 16px;
+        width: auto;
+        height: auto;
+        padding: 0;
+        margin: 0;
+    }
+    .product__spares-cart {
+        width: 40px;
+        height: 40px;
+        
+        svg {
+            width: 24px;
+            height: 24px;
+            color: #2C3336;
+        }
+    }
     
 }
 @media (max-width: 980px) {
@@ -276,6 +419,7 @@
     .product__videos-block .product__videos-prev{
         display: none;
     }
+
     .product__spares{
         border-radius: 16px;
         padding: 16px;
@@ -286,10 +430,20 @@
     }
     .product__spares-search{
         padding:8px 16px;
+        height: 40px;
 
         input{
             font-size: 14px;
+            line-height: 18px;
+
+            &::placeholder{
+                font-size: 14px;
+                line-height: 18px;
+            }
         }
+    }
+    .product__spares-table{
+        margin-top: 0;
     }
     .product__popular-title{
         font-size: 18px;
@@ -327,4 +481,5 @@
         width: 100%;
         justify-content: space-between;
     }
+   
 }
