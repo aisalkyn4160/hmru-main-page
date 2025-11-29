@@ -615,3 +615,14 @@ document.addEventListener('DOMContentLoaded', function() {
         notification.style.display = 'none';
     }
 });
+
+// product__add-to-cart
+
+document.addEventListener('DOMContentLoaded', function() {
+    const addToCartBtn = document.querySelector('.product__add-to-cart');
+    
+    addToCartBtn?.addEventListener('click', () => {
+        addToCartBtn.classList.toggle('active');
+     
+    })
+})
