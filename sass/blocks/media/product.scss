@@ -33,7 +33,9 @@
         width: 100%;
     }
 }
-
+@media (max-width: 1020px) {
+    
+}
 @media (max-width: 980px) {
     .product__slider-thumbs-wrapper{
         padding: 0;
@@ -61,6 +63,7 @@
         margin-bottom: 16px;
         display: -webkit-box;
         -webkit-line-clamp: 3; 
+        line-clamp: 3;
         -webkit-box-orient: vertical;
         overflow: hidden;
     }
@@ -228,6 +231,7 @@
         font-size: 13px;
         display: -webkit-box;
         -webkit-line-clamp: 1; 
+        line-clamp: 1;
         -webkit-box-orient: vertical;
         overflow: hidden;
     }

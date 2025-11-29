@@ -32,6 +32,7 @@
         &-btns{
             display: flex;
             align-items: center;
+            justify-content: space-between;
             gap: 16px;
             margin-top: auto;
         }
@@ -136,9 +137,6 @@
             padding: 8px 16px 10px;
             height: 36px;
         }
-    }
-    .blogs_item-btns{
-        justify-content: space-between;
     }
     .blogs_date{
         font-size: 13px;

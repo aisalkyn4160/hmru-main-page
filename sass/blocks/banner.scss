@@ -1,8 +1,4 @@
 .banner{
-   
-
-   
-
     &__item{
         width: 100%;
         min-height: 800px;
@@ -64,12 +60,13 @@
         cursor: pointer;
         width: 60px;
         height: 60px;
-        border-radius: 50%;
+        border-radius: 16px;
         display: flex;
         align-items: center;
         justify-content: center;
         background-color: #fff;
         border: none;
+        color: #2C3336;
     }
 
     .banner-next{
