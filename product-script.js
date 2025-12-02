@@ -626,3 +626,56 @@ document.addEventListener('DOMContentLoaded', function() {
      
     })
 })
+
+// product__add-to-cart
+
+document.addEventListener('DOMContentLoaded', function() {
+    const addToCartBtn = document.querySelector('.product__add-to-cart');
+    
+    addToCartBtn?.addEventListener('click', () => {
+        addToCartBtn.classList.toggle('active');
+     
+    })
+
+    // Обработка кнопок "Добавить" в связанных товарах
+    const relatedBtns = document.querySelectorAll('.product__related-btn');
+    
+    relatedBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const relatedItem = this.closest('.product__related-item');
+            const actionsContainer = relatedItem.querySelector('.product__related-actions');
+            
+            if (!actionsContainer) return;
+            
+            // Скрываем кнопку и показываем контейнер с счетчиком и корзиной
+            this.style.display = 'none';
+            actionsContainer.style.display = 'flex';
+        });
+    });
+
+    // Делегирование событий для счетчика
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.product__related-counter-btn--minus')) {
+            const counter = e.target.closest('.product__related-counter');
+            const counterValue = counter.querySelector('.product__related-counter-value');
+            let value = parseInt(counterValue.textContent, 10);
+            if (value > 1) {
+                value--;
+                counterValue.textContent = value;
+            }
+        }
+        
+        if (e.target.closest('.product__related-counter-btn--plus')) {
+            const counter = e.target.closest('.product__related-counter');
+            const counterValue = counter.querySelector('.product__related-counter-value');
+            let value = parseInt(counterValue.textContent, 10);
+            value++;
+            counterValue.textContent = value;
+        }
+
+        if (e.target.closest('.product__related-cart-icon')) {
+            const cartIcon = e.target.closest('.product__related-cart-icon');
+            cartIcon.classList.toggle('active');
+        }
+    });
+})

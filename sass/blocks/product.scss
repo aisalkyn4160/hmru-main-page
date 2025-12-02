@@ -526,10 +526,6 @@
             border: none;
             cursor: pointer;
 
-            &:hover {
-                // opacity: 0.7;
-            }
-
             svg {
                 width: 24px;
                 height: 24px;
@@ -919,6 +915,111 @@
 
         &:active {
             opacity: .7;
+        }
+    }
+
+    &__related-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    &__related-counter {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        background: #F7F7F8;
+        border-radius: 16px;
+        height: 40px;
+        width: 100%;
+        justify-content: space-between;
+        color: #2C3336;
+    }
+
+    &__related-counter-btn {
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        transition: opacity 0.2s ease;
+
+        &:hover:not(&--disabled) {
+            opacity: 0.7;
+        }
+
+        &--disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        svg {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+            color: #2C3336;
+
+            path {
+                fill: #2C3336;
+            }
+        }
+    }
+
+    &__related-counter-value {
+        min-width: 20px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 400;
+        color: #2C3336;
+        line-height: 140%;
+    }
+
+    &__related-cart-icon {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #E1E1E1;
+        background: #FFFFFF;
+        border-radius: 16px;
+        cursor: pointer;
+        padding: 0;
+        transition: all 0.2s ease;
+        flex-shrink: 0;
+
+        &:hover {
+            opacity: 0.8;
+        }
+
+        &:active {
+            opacity: 0.7;
+        }
+
+        &.active {
+            background: #0071E3;
+            border-bottom: #0071E3;
+
+            svg path {
+                fill: #FFFFFF;
+            }
+        }
+
+        svg {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+            color: #2C3336;
+
+            path {
+                fill: #2C3336;
+            }
         }
     }
 
