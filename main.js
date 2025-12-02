@@ -665,7 +665,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuList = document.querySelector('.menu-list');
     const moreMenu = document.querySelector('.more-menu');
     const moreSubmenu = document.querySelector('.more-submenu');
-    let allMenuItems = Array.from(document.querySelectorAll('.menu-item:not(.more-menu)'));
     
     // Обработка клика по кнопке "Ещё"
     const moreLink = moreMenu.querySelector('.menu-link');
@@ -684,14 +683,34 @@ document.addEventListener('DOMContentLoaded', () => {
         const padding = 180;
         const availableWidth = containerWidth - rightWidth - padding - moreMenuWidth;
         
+        // Возвращаем все элементы обратно в menu-list из more-submenu
+        const itemsInSubmenu = Array.from(moreSubmenu.querySelectorAll('li'));
+        itemsInSubmenu.forEach(item => {
+            // Находим оригинальный элемент по тексту ссылки
+            const linkText = item.querySelector('a')?.textContent.trim();
+            const existingItem = Array.from(menuList.querySelectorAll('.menu-item:not(.more-menu)'))
+                .find(menuItem => menuItem.querySelector('.menu-link')?.textContent.trim() === linkText);
+            
+            if (!existingItem) {
+                // Создаем элемент обратно в menu-list
+                const link = item.querySelector('a');
+                if (link) {
+                    const newItem = document.createElement('li');
+                    newItem.className = item.dataset.originalClass || 'menu-item';
+                    const newLink = link.cloneNode(true);
+                    newLink.className = 'menu-link';
+                    newItem.appendChild(newLink);
+                    menuList.insertBefore(newItem, moreMenu);
+                }
+            }
+            item.remove();
+        });
+        
+        // Получаем все элементы меню (кроме "Ещё")
+        let allMenuItems = Array.from(menuList.querySelectorAll('.menu-item:not(.more-menu)'));
+        
         let totalWidth = 0;
         let hiddenItems = [];
-        
-        // Сбрасываем состояние - показываем все пункты
-        allMenuItems.forEach(item => {
-            item.classList.remove('hidden');
-        });
-        moreSubmenu.innerHTML = '';
         
         // Вычисляем, какие пункты помещаются
         allMenuItems.forEach((item) => {
@@ -699,43 +718,38 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (totalWidth + itemWidth > availableWidth) {
                 hiddenItems.push(item);
-                item.classList.add('hidden');
             } else {
                 totalWidth += itemWidth;
             }
         });
         
-        // Сохраняем постоянные пункты меню "Ещё"
-        const permanentItems = [
-            { text: 'Готовые решения', href: '#' },
-            { text: 'Сервис и гарантия', href: '#' },
-            { text: 'Доставка', href: '#' }
-        ];
-        
-        // Сначала добавляем скрытые элементы
-        hiddenItems.forEach(item => {
+        // Перемещаем не помещающиеся элементы в выпадающий список
+        hiddenItems.forEach((item) => {
+            // Сохраняем оригинальный класс
+            item.dataset.originalClass = item.className;
+            
+            // Создаем элемент для submenu
+            const submenuItem = document.createElement('li');
+            submenuItem.dataset.originalClass = item.className;
+            
             const link = item.querySelector('.menu-link');
-            const li = document.createElement('li');
-            const a = document.createElement('a');
-            a.href = link.href;
-            a.className = 'submenu-link';
-            a.textContent = link.textContent.trim();
+            const submenuLink = link.cloneNode(true);
+            submenuLink.className = 'submenu-link';
             
-            li.appendChild(a);
-            moreSubmenu.appendChild(li);
+            submenuItem.appendChild(submenuLink);
+            moreSubmenu.appendChild(submenuItem);
+            
+            // Удаляем элемент из основного меню
+            item.remove();
         });
         
-        // Затем добавляем постоянные пункты
-        permanentItems.forEach(item => {
-            const li = document.createElement('li');
-            const a = document.createElement('a');
-            a.href = item.href;
-            a.className = 'submenu-link';
-            a.textContent = item.text;
-            
-            li.appendChild(a);
-            moreSubmenu.appendChild(li);
-        });
+        // Скрываем/показываем кнопку "Ещё" в зависимости от наличия элементов
+        const hasItems = moreSubmenu.querySelectorAll('li').length > 0;
+        if (hasItems) {
+            moreMenu.style.display = '';
+        } else {
+            moreMenu.style.display = 'none';
+        }
     }
     
     // Инициализация
