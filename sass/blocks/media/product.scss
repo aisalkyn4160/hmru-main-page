@@ -399,6 +399,7 @@
     }
     .product__videos-block{
         margin: 36px 0;
+        scroll-margin-top: 130px;
     }
 
     .product__videos-slider .swiper-slide{
@@ -481,5 +482,14 @@
         width: 100%;
         justify-content: space-between;
     }
-   
+    .product__actions{
+        flex-wrap: nowrap;
+        gap: 8px;
+        a{
+            min-width: 144px;
+        }
+    }
+    .product__code{
+        padding: 2px 8px;
+    }
 }
