@@ -660,11 +660,125 @@ $(function () {
 })
 
 // ----------------------------------more-menu----------------------------------
+// document.addEventListener('DOMContentLoaded', () => {
+//     const nav = document.querySelector('.header__top');
+//     const menuList = document.querySelector('.menu-list');
+//     const moreMenu = document.querySelector('.more-menu');
+//     const moreSubmenu = document.querySelector('.more-submenu');
+    
+//     // Обработка клика по кнопке "Ещё"
+//     const moreLink = moreMenu.querySelector('.menu-link');
+//     moreLink.addEventListener('click', (e) => {
+//         e.preventDefault();
+//         moreMenu.classList.toggle('active');
+//     });
+    
+//     // Функция адаптации меню
+//     function adaptMenu() {
+//         const navContainer = document.querySelector('.nav-container');
+//         const navRight = document.querySelector('.nav-right');
+//         const containerWidth = navContainer.offsetWidth;
+//         const rightWidth = navRight.offsetWidth;
+//         const moreMenuWidth = moreMenu.offsetWidth;
+//         const padding = 180;
+//         const availableWidth = containerWidth - rightWidth - padding - moreMenuWidth;
+        
+//         // Возвращаем все элементы обратно в menu-list из more-submenu
+//         const itemsInSubmenu = Array.from(moreSubmenu.querySelectorAll('li'));
+//         itemsInSubmenu.forEach(item => {
+//             // Находим оригинальный элемент по тексту ссылки
+//             const linkText = item.querySelector('a')?.textContent.trim();
+//             const existingItem = Array.from(menuList.querySelectorAll('.menu-item:not(.more-menu)'))
+//                 .find(menuItem => menuItem.querySelector('.menu-link')?.textContent.trim() === linkText);
+            
+//             if (!existingItem) {
+//                 // Создаем элемент обратно в menu-list
+//                 const link = item.querySelector('a');
+//                 if (link) {
+//                     const newItem = document.createElement('li');
+//                     newItem.className = item.dataset.originalClass || 'menu-item';
+//                     const newLink = link.cloneNode(true);
+//                     newLink.className = 'menu-link';
+//                     newItem.appendChild(newLink);
+//                     menuList.insertBefore(newItem, moreMenu);
+//                 }
+//             }
+//             item.remove();
+//         });
+        
+//         // Получаем все элементы меню (кроме "Ещё")
+//         let allMenuItems = Array.from(menuList.querySelectorAll('.menu-item:not(.more-menu)'));
+        
+//         let totalWidth = 0;
+//         let hiddenItems = [];
+        
+//         // Вычисляем, какие пункты помещаются
+//         allMenuItems.forEach((item) => {
+//             const itemWidth = item.offsetWidth;
+            
+//             if (totalWidth + itemWidth > availableWidth) {
+//                 hiddenItems.push(item);
+//             } else {
+//                 totalWidth += itemWidth;
+//             }
+//         });
+        
+//         // Перемещаем не помещающиеся элементы в выпадающий список
+//         hiddenItems.forEach((item) => {
+//             // Сохраняем оригинальный класс
+//             item.dataset.originalClass = item.className;
+            
+//             // Создаем элемент для submenu
+//             const submenuItem = document.createElement('li');
+//             submenuItem.dataset.originalClass = item.className;
+            
+//             const link = item.querySelector('.menu-link');
+//             const submenuLink = link.cloneNode(true);
+//             submenuLink.className = 'submenu-link';
+            
+//             submenuItem.appendChild(submenuLink);
+//             moreSubmenu.appendChild(submenuItem);
+            
+//             // Удаляем элемент из основного меню
+//             item.remove();
+//         });
+        
+//         // Скрываем/показываем кнопку "Ещё" в зависимости от наличия элементов
+//         const hasItems = moreSubmenu.querySelectorAll('li').length > 0;
+//         if (hasItems) {
+//             moreMenu.style.display = '';
+//         } else {
+//             moreMenu.style.display = 'none';
+//         }
+//     }
+    
+//     // Инициализация
+//     adaptMenu();
+    
+//     // Адаптация при изменении размера окна
+//     let resizeTimer;
+//     window.addEventListener('resize', () => {
+//         clearTimeout(resizeTimer);
+//         resizeTimer = setTimeout(() => {
+//             adaptMenu();
+//         }, 100);
+//     });
+    
+//     // Закрытие подменю при клике вне меню
+//     document.addEventListener('click', (e) => {
+//         if (!e.target.closest('.header__top')) {
+//             moreMenu.classList.remove('active');
+//         }
+//     });
+// });
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const nav = document.querySelector('.header__top');
     const menuList = document.querySelector('.menu-list');
     const moreMenu = document.querySelector('.more-menu');
     const moreSubmenu = document.querySelector('.more-submenu');
+    const MORE_MENU_INDEX = 4; // Максимальное количество пунктов в основном меню
     
     // Обработка клика по кнопке "Ещё"
     const moreLink = moreMenu.querySelector('.menu-link');
@@ -683,18 +797,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const padding = 180;
         const availableWidth = containerWidth - rightWidth - padding - moreMenuWidth;
         
-        // Возвращаем все элементы обратно в menu-list из more-submenu
+        // Сначала возвращаем все элементы обратно в menu-list из more-submenu
         const itemsInSubmenu = Array.from(moreSubmenu.querySelectorAll('li'));
         itemsInSubmenu.forEach(item => {
-            // Находим оригинальный элемент по тексту ссылки
-            const linkText = item.querySelector('a')?.textContent.trim();
-            const existingItem = Array.from(menuList.querySelectorAll('.menu-item:not(.more-menu)'))
-                .find(menuItem => menuItem.querySelector('.menu-link')?.textContent.trim() === linkText);
-            
-            if (!existingItem) {
-                // Создаем элемент обратно в menu-list
-                const link = item.querySelector('a');
-                if (link) {
+            const link = item.querySelector('a');
+            if (link) {
+                const linkText = link.textContent.trim();
+                const existingItem = Array.from(menuList.querySelectorAll('.menu-item:not(.more-menu)'))
+                    .find(menuItem => {
+                        const menuLink = menuItem.querySelector('.menu-link');
+                        return menuLink && menuLink.textContent.trim() === linkText;
+                    });
+                
+                if (!existingItem) {
                     const newItem = document.createElement('li');
                     newItem.className = item.dataset.originalClass || 'menu-item';
                     const newLink = link.cloneNode(true);
@@ -706,24 +821,49 @@ document.addEventListener('DOMContentLoaded', () => {
             item.remove();
         });
         
-        // Получаем все элементы меню (кроме "Ещё")
+        // Получаем ВСЕ элементы меню (кроме "Ещё") после возврата
         let allMenuItems = Array.from(menuList.querySelectorAll('.menu-item:not(.more-menu)'));
         
-        let totalWidth = 0;
-        let hiddenItems = [];
+        // Если элементов 4 или меньше, скрываем "Ещё" и завершаем
+        if (allMenuItems.length <= MORE_MENU_INDEX) {
+            moreMenu.style.display = 'none';
+            moreSubmenu.innerHTML = '';
+            return;
+        }
         
-        // Вычисляем, какие пункты помещаются
-        allMenuItems.forEach((item) => {
+        // Сначала пробуем разместить все пункты с учетом ширины
+        let visibleItems = [];
+        let hiddenItems = [];
+        let totalWidth = 0;
+        
+        // Пробуем разместить все возможные пункты
+        allMenuItems.forEach((item, index) => {
             const itemWidth = item.offsetWidth;
             
-            if (totalWidth + itemWidth > availableWidth) {
+            // Учитываем ширину кнопки "Ещё" только если мы планируем её показывать
+            const moreWidth = (hiddenItems.length > 0 || index >= MORE_MENU_INDEX) ? moreMenuWidth : 0;
+            
+            if (totalWidth + itemWidth + (index >= MORE_MENU_INDEX ? moreWidth : 0) > availableWidth) {
+                // Не помещается по ширине
+                hiddenItems.push(item);
+            } else if (visibleItems.length >= MORE_MENU_INDEX) {
+                // Помещается по ширине, но уже достигли лимита в 4 пункта
                 hiddenItems.push(item);
             } else {
+                // Помещается и можно добавить
+                visibleItems.push(item);
                 totalWidth += itemWidth;
             }
         });
         
-        // Перемещаем не помещающиеся элементы в выпадающий список
+        // Если все пункты помещаются по ширине, но их больше 4,
+        // перемещаем лишние в "Ещё" (начиная с 5-го)
+        if (hiddenItems.length === 0 && allMenuItems.length > MORE_MENU_INDEX) {
+            hiddenItems = allMenuItems.slice(MORE_MENU_INDEX);
+            visibleItems = allMenuItems.slice(0, MORE_MENU_INDEX);
+        }
+        
+        // Перемещаем скрытые элементы в подменю
         hiddenItems.forEach((item) => {
             // Сохраняем оригинальный класс
             item.dataset.originalClass = item.className;
@@ -743,9 +883,31 @@ document.addEventListener('DOMContentLoaded', () => {
             item.remove();
         });
         
-        // Скрываем/показываем кнопку "Ещё" в зависимости от наличия элементов
-        const hasItems = moreSubmenu.querySelectorAll('li').length > 0;
-        if (hasItems) {
+        // Убеждаемся, что в основном меню осталось не больше 4 пунктов
+        const remainingItems = menuList.querySelectorAll('.menu-item:not(.more-menu)');
+        if (remainingItems.length > MORE_MENU_INDEX) {
+            const extraItems = Array.from(remainingItems).slice(MORE_MENU_INDEX);
+            extraItems.forEach(item => {
+                // Перемещаем в подменю
+                item.dataset.originalClass = item.className;
+                
+                const submenuItem = document.createElement('li');
+                submenuItem.dataset.originalClass = item.className;
+                
+                const link = item.querySelector('.menu-link');
+                const submenuLink = link.cloneNode(true);
+                submenuLink.className = 'submenu-link';
+                
+                submenuItem.appendChild(submenuLink);
+                moreSubmenu.appendChild(submenuItem);
+                
+                item.remove();
+            });
+        }
+        
+        // Скрываем/показываем кнопку "Ещё"
+        const hasSubmenuItems = moreSubmenu.querySelectorAll('li').length > 0;
+        if (hasSubmenuItems) {
             moreMenu.style.display = '';
         } else {
             moreMenu.style.display = 'none';
@@ -771,9 +933,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
-
-
-
 // ----------------------------------datetime-picker----------------------------------
 document.addEventListener('DOMContentLoaded', () => {
     const datetimeInput = document.getElementById('datetime-input');
