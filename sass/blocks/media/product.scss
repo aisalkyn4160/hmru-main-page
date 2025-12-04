@@ -16,9 +16,6 @@
         display: block;
         margin-bottom: 40px;
     }
-}
-
-@media (max-width: 1320px) {
     .product__slider-thumbs-wrapper{
         max-width: 900px;
         margin: 0 auto;
@@ -49,6 +46,16 @@
         
         &--alt {
             background: #FFF;
+        }
+    }
+    .product__spares-col--usage {
+        position: absolute;
+        top: 15px;
+        right: 8px;
+
+        span{
+            padding: 2px 4px;
+            font-size: 12px;
         }
     }
     .product__spares-col {
